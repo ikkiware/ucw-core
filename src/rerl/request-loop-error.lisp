@@ -125,10 +125,17 @@
                        :http-status-code http-status-code
                        :error-handler nil)
     ;; TODO render some token that can be used to search the logs?
-    (<:html
-     (<:head (<:title (<:as-html title)))
-     (<:body (<:h1 (<:as-html title))
-             (<:p (<:as-html message))))))
+    (error-page-message title message)))
+
+(defun error-page-message (title message)
+  "This function display standard error page
+   IN: title
+   IN: message
+   OUT: A web page with standard error"
+  (<:html
+   (<:head (<:title (<:as-html title)))
+   (<:body (<:h1 (<:as-html title))
+	   (<:p (<:as-html message)))))
 
 (defun invoke-slime-debugger-if-possible (condition)
   (if (or swank::*emacs-connection*
