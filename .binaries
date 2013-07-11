@@ -1,0 +1,3 @@
+# should be the following, but darcs, as of now, only matches against the filename. feature requested: http://bugs.darcs.net/issue469
+# ^wwwroot/dojo/
+\.js$

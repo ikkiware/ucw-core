@@ -1,0 +1,797 @@
+* Getting Started with UncommonWeb.
+  
+** What UCW is.
+
+UCW is a multi-paradigm framework for building Web based applications
+in Common Lisp. It has an extensible core, the RERL, that enables many
+methods and styles of web development, and can operate using almost
+any web server as a front end, including a few that come built in.
+
+UCW includes a component oriented system allows both the graphical
+elements and the presentation logic to be easily reused and adapted,
+and has features that allow developers to write complex page flow
+logic as if it was a "regular" sequence of function calls.
+
+UCW has been used to develop all kinds of web sites and applications
+just using the standard library (ucw-standard) but also serves as an
+excellent platform for developing higher-level frameworks, such as
+lisp-on-lines, ucw_ajax and core-server.
+
+** What UCW isn't.
+
+UCW is not a full-stack, all or nothing approach. UCW does not include
+form builders, Object/Relational mapping or any database support. UCW
+deals only with the web side of things, like dealing with HTTP
+requests, sessions, mashalling/unmarshalling of GET/POST variables and
+the like.
+
+Users are encouraged to explore the higher-level ucw-based frameworks
+once a solid grounding in UCW concepts has been acheived.
+
+** Supported Platforms
+   
+ SBCL/linux/x86. UCW attempts to be portable, and reports of it
+ working elsewhere are welcome.
+
+** Dependencies
+    :arnesi 
+    :swank 
+    :iterate 
+    :yaclml 
+    :local-time
+    :usocket 
+    :rfc2109 
+    :net-telent-date 
+    :cl-fad
+    :trivial-garbage 
+    :bordeaux-threads
+    :rfc2388-binary 
+    :puri 
+    :cl-ppcre
+ 
+ ** Installation 
+
+Currently, the only way to install UCW is from the darcs archive. Most
+of its dependencies should be installed the same way.
+
+** Starting the demo
+
+load demo/demo.lisp and run (startup-demo)
+
+** Understanding UCW.
+
+Uncommon web provides a framework that abstracts the details of
+HTTP. Understanding UCW is the simple matter of understanding these
+abstractions, and how they come together to form a ucw application.
+
+Web developers starting with UCW often have trouble understanding how
+it works. Its more advanced features, such as callbacks and actions
+using continuations, seem to work like magic. This guide will attempt
+to explain UCW from the bottom up. Hopefully this will serve to
+demistify both the operation and the purpose of these features.
+
+We'll start with an explaination of the "Standard" web application
+features of UCW, such as session management and html generation, and
+leads towards the advanced features, like the Component Oriented UI
+and Linear Page Flow Logic using continuations.
+
+Due to this bottom up approach, some of the early example code may
+seem long-winded and convoluted. Don't let that scare you off, it
+cleans up nicely at the end.
+
+** The RERL
+
+UCW is based around the Request Eval Response Loop (RERL). The RERL is
+an extensible CLOS protocol that takes care of the details, while
+still allowing the programmer to hook in at any point. Because of this
+extensibility, UCW is suitable for all types of web applications. The
+more advanced features of UncommonWeb are especially suited for highly
+stateful applications with a complex control flow.  The developer is
+free to use an much or as little of the RERL as desired for any given
+request. One can freely intermix a REST-style with a heavily stateful
+CPS approach where appropriate. This manual will demonstrate both
+approaches, but will focus on the unique features of UCW and assume
+the reader already knows how to make 'standard' web applications.
+
+The RERL protocol is fully documented in src/rerl/protocol.lisp.
+
+
+*** Handling Incoming Requests
+
+BACKEND->SERVER->APPLICATION->DISPATCHER->HANDLER
+
+When a user requests an HTTP URL, that request is handled by an HTTP
+server. UCW calls this a BACKEND. UCW can be made to work with any
+backend, including mod_lisp, lisp HTTP servers, or its own internal
+HTTPD. We'll be using the internal HTTPD, but this is by no means
+required.
+
+*** Backends and Servers
+
+The MAKE-BACKEND method creates and returns an instance of a BACKEND
+class. This backend will be included as part of a SERVER object. The
+BACKEND, for each request, is responsible for creating REQUEST and
+RESPONSE objects, and the three objects are passed to
+HANDLE-REQUEST. This method sets up the UCW enviroment and passed
+control to the SERVER object.
+
+The SERVER object is the logical 'server', through which all requests
+pass. In the default implementation, a SERVER matches the request
+against those expected by applications registered with the SERVER.
+
+(in-package :ucw-user)
+
+(defvar *example-server* 
+  (make-instance 'standard-server 
+    :backend (make-backend :httpd :port 8080)))
+
+(defun start-example-server ()
+  (startup-server *example-server*))
+
+*** Applications and Dispatchers
+
+An APPLICATION is just that, a cohesive collection of features. It's
+main responsibilty in UCW is as a containter for DISPATCHERS and
+ENTRY-POINTS, and as a place to store the SESSION objects. An
+APPLICTION will attempt to match the REQUEST against its
+DISPATCHERS. By default, there are two types of dispatchers that will
+delegate their requests to the RERL, those created as ENTRY-POINTS and
+ACTION dispatchers.
+
+
+(defclass example-application (standard-application 
+			       cookie-session-application-mixin)
+  ()
+  (:default-initargs
+    :url-prefix "/example/"))
+
+(defvar *example-application* (make-instance 'example-application))
+
+(register-application *example-server* *example-application*)
+
+So, when a backend receives a request and passes it to ucw, the server
+object searches for a matching application (in our case matched via a
+url-prefix). The application matches the request object against
+against its dispatchers, and if a match is found that dispatcher calls
+its handler function.
+
+
+** The EVAL and RESPONSE stages.
+
+*** Entry Points (and a "Standard" hello world).
+
+Once a request has been properly dispatched to the correct handlers,
+We enter UCW's EVAL stage. 'External' urls in UCW are known as
+ENTRY-POINTs. These are bookmarkable, REST-style linkable resources
+exposed directly to the web. Lets look at a simple example.
+
+(defentry-point "hello.ucw" (:application *example-application*
+			     :with-call/cc nil) 
+    ()
+  (format (html-stream (context.response *context*))
+	  "Hello World"))
+
+Here, we define an entry point into our application. The url that can
+be used to access this entry point would be
+http://localhost:8000/example/hello.ucw. If you do a
+(start-example-server), and point your browser to the right spot, you
+should be able to see a "Hello World" in your browser.
+
+The :WITH-CALL/CC option is set to NIL here. This is not strictly
+neccesary, but were not using UCW's continuation based features yet,
+so we can gain a minor performance increase by avoiding the overhead
+of the CPS interpreter.
+
+Also, notice the *CONTEXT* special variable. Within the RERL,
+*CONTEXT* is always bound to the current REQUEST-CONTEXT. See
+protocol.lisp for an overview of what's available via *CONTEXT*. The
+HTML-STREAM of the RESPONSE object contains a stream that will write
+to the users browser, and here we simply use FORMAT to write our
+message.
+
+*** Entry Points with Arguements (GET/POST parameters part 1)
+
+An entry point is very much like the concept of a 'page' or 'file' in
+other frameworks/languages... with all the issues that entails. While
+a developer should avoid putting too much logic and presenation code
+in an entry point, there are a number of cases where it is quite
+useful.
+
+In particular, if one were doing a REST-like application mixed with
+stateful components, entry points (or something built in the style of
+an entry point handler) with arguments are a perfect solution.
+
+
+(defentry-point "hello2.ucw" (:application *example-application*
+			     :with-call/cc nil) 
+    ((message "World"))
+  (format (html-stream (context.response *context*))
+	  "Hello ~A" message))
+
+In this example, hitting "http://localhost:8000/example/hello2.ucw"
+will producde our standard greeting. We can change the greeting like
+"http://localhost:8000/example/hello2.ucw?message=Universe". This will
+display "Hello Universe" as expected.
+
+See the documentation of defentry-point for more details about the
+REQUEST-LAMBDA-LIST and other arguments.
+ 
+
+*** YACLML: Yet another common lisp markup language.
+
+Obviously, nobody wants to generate HTML via FORMAT. It would get ugly
+fast. UCW does not enforce any particular way of generating HTML, so a
+developer is free to use any existing HTML macro or template library.
+
+Internally, UCW uses the YACLML macro language to generate HTML, so
+that is the path of least resistance. For developers who prefer to
+generate thier HTML from templates, UCW also includes support for TAL,
+an xml template language. We'll only look at YACLML here, but it is
+trivial to add support for other methods.
+
+YACLML tag macros are defined on symbols in a package named "<". This
+means that calls to the HTML macros look a little like HTML, an tags
+are easily distinguised from lisp code. Attributes are supplied as
+keyword arguments, and must appear directly after the tag name.
+
+(defun render-page-wrapper (title thunk) 
+  (<:html 
+   (<:head (<:title (<:as-html title)))
+   (<:body :id "body" (funcall thunk))))
+
+(defun render-message (message)
+  (<:span 
+   :class "message" 
+   (<:as-html "Hello " message "!")))
+
+(defun render-message-form (name)
+  (<:form 
+   (<:as-html "Enter a new message:")
+   (<:input 
+    :type "text" :name (string-downcase name))
+   (<:submit)))
+
+(defentry-point "hello-yaclml.ucw" 
+    (:application *example-application* 
+     :with-call/cc nil) 
+    ((message nil))
+  (render-page-wrapper "UCW Example" 
+    (lambda () 
+      (<:style ".message {font-size:2em;font-weight:bold")
+      (if message 
+	  (render-message message)
+	  (render-message-form 'message)))))
+
+This should serve to demonstrate yacml, and also show you a simple use of the FORM tag. Indeed, one could build an entire application this way, composing functions and entry points. However, we have only scratched the surface of what UCW can do for you.
+
+*** UCW Components, a UI toolkit for the web.
+
+Up to this point we've been well within the realm of standard web
+development. While building application in this style is possible, It
+gets messy quickly. The control flow of our application is obscured by
+the manner in which we must keep state, by passing variables via get
+or post, and our display code, though nicely factored out into
+functions, is still all mixed up with our logic. Components solve the
+first part of the problem, the display or 'view' in MVC terms.
+
+Components are pieces of your interface, similar to 'widgets' or
+'gadgets' in desktop GUI toolkits. One composes any number of
+components inside a top-level WINDOW-COMPONENT, and this component
+tree is then rendered to html and presented to the user.
+
+UCW components are instances of CLOS classes with the
+STANDARD-COMPONENT-CLASS metaclass.
+
+(defclass example-message ()
+  ((message :accessor message :initarg :message :initform "World!"))
+  (:metaclass standard-component-class))
+
+(defmethod render :before ((self example-message))
+  (<:style ".message {font-size:2em;font-weight:bold"))
+
+(defmethod render ((self example-message))
+  (render-message (message  self)))
+
+(defclass example-form ()
+  ()
+  (:metaclass standard-component-class))
+
+(defmethod render ((self example-form))
+  (render-message-form 'message))
+
+We've created a couple of simple components here. In this very basic
+example, using components over functions buys us very little.. it's
+more verbose and there's more overhead. However, components play an
+important role when using UCW's advanced control flow features, and it
+is useful to abstract the RENDERing to a single method.
+
+WINDOW-COMPONENTS are the top-level wrappers. Generally, they print
+the html header and then delegate to another component for the
+rest. When nesting components, the slot that contains the component
+should be marked ":component t". For the simple example that follows
+it doesn't matter, but we will be re-using the window component in
+later more involved examples.
+ 
+(defclass example-window (window-component)
+  ((title :accessor window.title 
+	  :initform "UCW Example"
+	  :initarg :title)
+   (body :accessor window.body
+	 :component t
+	 :initarg :body))
+  (:metaclass standard-component-class))
+
+(defmethod render :around ((window example-window))
+  (render-page-wrapper (window.title window)
+    (lambda () (call-next-method))))
+
+(defmethod render ((window example-window))
+  (render (window.body window)))
+
+This should be pretty self-explanitory, but do take note of the body
+slot with the :component initarg.
+
+This next utility function will help us clean up our entry point, and
+also serves to show how one might 'manually' render a component. In
+general, UCW calls the RENDER method as part of the RERL. However, in
+this case we never pass control to a component (we havn't made it to
+control flow yet), so something like this is neccessary.
+ 
+(defun render-example-window (body-component-name 
+			      &rest initargs)
+  (render 
+   (make-instance 'example-window  
+    :body (apply #'make-instance body-component-name initargs))))
+
+There are situations, usually when mixing REST with UCW control flow,
+where this approach is actually warranted, and it does serve as a
+useful example.
+
+Finally, an entry point to bring it all together.
+
+(defentry-point "hello-components.ucw" 
+    (:application *example-application*) 
+    ((message nil))
+        (if message 
+	    (render-example-window 'example-message :message message)
+	    (render-example-window 'example-form)))
+
+It must be said that components can do a lot more than encapsulate the
+display code. Components can call other components, which can answer
+with real lisp values. Components are also conveinent places to store data
+related to the application that one might traditionally keep in a
+'session' variable.
+
+** Keeping and Frobbing State : from sessions to actions.
+
+Up until this very point, we've basically been doing CGI in lisp. Form
+variables were used to keep state, in proper REST fashion, and as such
+the actual control flow is hidden in an adhoc state machine. Wouldn't
+it be nice to simply be able to say something like:
+
+(unless message 
+ (setf message (get-message-from-user)))
+(display-message message)
+
+... and have the computer figure out the details? Would it not be a
+relief to have links and buttons call functions, and to have form
+inputs become simple accessors? UCW does all this and more. UCW builds
+on simple sessions to provide a stateful HTTP.
+
+*** Sessions.
+
+When a user hits an entry point, UCW automatically associates that
+user with a session id, and that session id with a session
+object. Just like in other frameworks, you can either store the
+session id in a cookie, (we've included the
+cookie-session-application-mixin in our example-application above for
+this reason), or you can append it to any URLs you render within that
+session.
+
+If the session is not stored in a cookie, UCW expects to se it passed
+via GET or POST as a parameter named, oddly enough,
++session-parameter-name+. This behavior can be changed at the
+dispatcher level.
+
+Although the session object does a lot more than simply store values,
+that is a valid and common use of sessions. An accessor,
+GET-SESSION-VALUE, allows you to use sessions as a hash table. I like
+to use a symbol macro for 'global' values, such as those stored in
+sessions, or toplevel components etc.
+
+(define-symbol-macro $message (get-session-value :message))
+
+Since we are now storing state on the server as part of the session
+object, a way to 'reset' the value is a good idea. We'll include the
+logic as part of our entry point.
+
+(defun render-reset-link ()
+  (<:div (<:a :href "hello-session.ucw?reset"
+	      (<:as-html "Reset Message"))))
+
+Now we'll need to modify our message component to pull the message
+from the session. and display the reset link. We can reuse the same
+form as well.
+
+(defclass example-session-message (example-message)()
+  (:metaclass standard-component-class))
+
+(defmethod message ((self example-session-message))
+  $message)
+
+(defmethod render :after ((self example-session-message))
+  (render-reset-link))
+
+(defclass example-session-form ()()
+  (:metaclass standard-component-class))
+
+(defmethod render :after ((self example-session-form))
+  (render-reset-link))
+
+
+And again, an entry point to bring it all together. We still have way
+too much logic in our entry points.. we're basically still making web
+pages here. The next section is the beginning of the end of this, i
+promise.
+
+(defentry-point "hello-session.ucw" 
+    (:application *example-application*
+     :with-call/cc nil) 
+    ((message nil) (reset nil reset-requested-p))
+
+  (when message 
+    (setf $message message))
+
+  (when reset-requested-p
+    (setf $message nil))
+  
+  (if $message 
+      (render-example-window 'example-session-message)
+      (render-example-window 'example-session-form)))
+
+*** Frames, Actions, Callbacks.
+
+A session is a really coarse way to keep track of application
+state. It doesn't deal well with multiple windows, the back button,
+and a host of other things that web users do to innocent session-based
+applications.
+
+UCW adds another object to the equation.. a FRAME. A frame represents
+an indivual hit, a page rendered .. an interaction with the
+application. When a session is created, an initial frame is
+created. Other hits to the same session might create other frames.. so
+a frame is like a point in time. Usually, frames are created as
+required to maintain state.
+
+FRAMES are used to store two important types of data, ACTIONS and
+CALLBACKS. Actions are essentially functions.. they run to side-effect
+the components that will be displayed. CALLBACKS, are setters. Usually
+called before an ACTION is run, callbacks take values from GET and
+POST variables and call a function on them. Most often this function
+uses the value to set a slot or a variable.
+
+A good example of an action is our reset functionality. Having to pass
+a variable to an entry point is not at the level of abstraction we'd
+like to be working in.. i want a reset function to run when a user
+clicks a reset link, and damn the details.
+
+Since we are still not using UCW's control flow features, we have to do
+a little setup first. Without control flow, we are still stuck in the
+age of GOTO, and we have to specify which entry-point to hit in order
+to run our action and render our components.
+
+There is a method, COMPUTE-URL, that returns a URL with all the
+details needed to perform an action. We'll simply create a mixin that
+adds the name of our entry point to the URL.
+
+(defclass entry-point-action-mixin ()
+  ((entry-point :accessor entry-point 
+		:initarg :entry-point 
+		:initform "hello-action.ucw")))
+
+(defmethod compute-url :around (action (component entry-point-action-mixin))
+  (let ((url (call-next-method)))
+    (setf (uri.path url) (entry-point component))
+    url))
+
+One might use this technique to create 'bookmarkable' or permenent
+URLs within an application that uses the control flow features.
+
+Also, a FRAME can contain a top level WINDOW-COMPONENT. If it exists,
+the RENDER method will be called on it. We can use this to create the
+primitive control flow operator i mentioned earler.
+
+(defun go-to (body-component-name 
+		       &rest initargs)
+  (setf (frame.window-component 
+	 (context.current-frame *context*))
+	(make-instance 'example-window  
+		       :body (apply #'make-instance 
+				    body-component-name 
+				    initargs))
+))
+
+**** Actions 
+
+Next, we'll use the compute-url method, along with REGISTER-ACTION, to
+create a function that is attached to a URL. When that URL is
+reqested, the function will be called, within the context of the
+requests and components we've created.
+
+(defclass action-reset-link-mixin () ())
+
+(defun reset-message ()
+  (setf $message nil)
+  (go-to 'example-form)) 
+
+(defmethod render-reset-link ((self action-reset-link-mixin))
+  (let* ((action (register-action (:with-call/cc nil)
+		   (reset-message)))
+	 (url (compute-url action self)))
+
+    (<:a :href (print-uri-to-string url) "Reset Message")))
+
+In RENDER-RESET-LINK, we register an action ( a closure) in the
+current frame. That action is given a unique id that is used by
+COMPUTE-URL, and with the changes we made to it produces the correct
+magic url. Again note that we specify that no call/cc is needed here.
+
+If you think that's a little long-winded and belongs in a macro,
+you're right. the <UCW:A yaclml tag provides syntax for creating links
+to actions. The code above could be written as (<ucw:a :function
+(lambda () (reset-message)) "Reset Message"), and we'll be using this
+syntax from now on.
+
+And again, lets put it all together.
+
+(defclass example-action-message (example-session-message
+				  entry-point-action-mixin
+				  action-reset-link-mixin)
+  ()
+  (:metaclass standard-component-class))
+
+(defentry-point "hello-action.ucw" 
+    (:application *example-application*
+     :with-call/cc nil) 
+    ((message nil))
+
+  (when message 
+    (setf $message message))
+  
+  (if $message 
+      (go-to 'example-action-message)
+      (go-to 'example-session-form)))
+
+**** Callbacks.
+
+We are still passing in MESSAGE via a GET parameter. CALLBACKS, like
+actions, allow you to specify a function that will be run when certain
+parameters are passed via the url. unlike actions, callbacks accept a
+value, and can be used as setters for input from forms or urls.
+
+(defclass example-callback-form (example-form)
+  ()
+  (:metaclass standard-component-class))
+
+(defmethod render-input (component)
+  (let ((callback (register-callback 
+		   (lambda (value)
+		     (setf $message value)))))
+    (<:input 
+     :type "text"
+     :name callback)))
+
+So we simply register a callback and use the return value, the
+callback id, as the name of an input. <UCW:INPUT provides syntax for
+this like <UCW:A does for actions.
+
+Then it's a simple matter of creating a form that points to an action,
+and we're good. We're going to use <UCW:FORM, which provides some more
+syntax for setting forms to call actions.
+
+
+(defmethod render-submit (component)
+  (<:submit))
+
+(defmethod render ((self example-callback-form))
+ (<ucw:form 
+   :function (lambda ()
+	       (when $message 
+		 (go-to 'example-callback-message)))
+   (<:as-html "Enter a new message:")
+   (render-input self)
+   (render-submit self)))
+
+Since we are no longer passing MESSAGE around in URL parameters, we
+don't need to associate our compnents with an entry point anymore.
+
+(defclass example-callback-message (example-session-message
+				    action-reset-link-mixin
+)
+  ()
+  (:metaclass standard-component-class))
+
+(defmethod reset-message ((component example-callback-message))
+  (setf $message nil)
+  (go-to 'example-callback-form))
+
+
+And breakin it back down, the entry point. Notice the lack of
+arguments.. we are now storing all state on the server and handling
+form/url arguments seamlessly.We could, of course, still use entry
+point arguments where it makes sense, but we no longer have to do so
+for most uses.
+
+(defentry-point "hello-callback.ucw" 
+    (:application *example-application*
+     :with-call/cc nil) ()
+  
+  (if $message 
+      (go-to 'example-callback-message)
+      (go-to 'example-callback-form)))
+
+** Control Flow : CGI + GOTO considered harmful.
+
+Although i have to admit that our GO-TO version is a minor improvement
+over the ad hoc state machine, it's still GOTO, and we've come a long
+way since Qbasic, havn't we. Besides, LAMBDA is the ultimate GOTO, and
+we're lispers.
+
+The problem with the above approach is that our message needs to know
+about our form and vice-versa. All these GO-TOs create code only the
+FSM could love. What we need are real function calls.
+
+UCW uses delimited continuations to allow the developer to call
+components as if they were functions, and have those functions return
+a value. So, instead of our form jumping via GO-TO to our message
+display, our form can actually return a value to a caller.
+
+Two methods, CALL and ANSWER, are the high level control flow
+operators. CALL is like FUNCALL for components, and ANSWER like
+return. Using these, we can make our message component into a generic
+input component with ease.
+
+(defclass example-control-flow-form (example-form)
+  ((prompt :accessor prompt 
+	   :initarg :prompt 
+	   :initform "Enter a new message:"))
+  (:metaclass standard-component-class))
+
+(defmethod render ((self example-callback-form)) (let ((input ""))
+  (<ucw:form :action (answer input) (<:as-html (prompt self))
+  (<ucw:input :type "text" :accessor input) (render-submit self))))
+
+Take note of a few things in the above render method:
+
+   - We're storing the input in a lexical variable.. no need for
+     sessions, parameters, or anything of the sort.. this is generic
+     component that works in any situation.
+
+   - We're using the :ACTION keyword to <UCW:FORM. This is a shortcut
+     for a lambda and a with-call/cc form.. we are now finally using
+     the delimited continuation intepreter
+
+   - The ANSWER form is like RETURN. When that action is run, this
+     component will return the value of INPUT to the caller.
+
+   - The <UCW:INPUT form has replaced our custom callback code.
+
+The ACTION identifier is somewhat overloaded in UCW. There are also
+things called 'action methods', often shortened to simply
+ACTION. These are essentially regular methods that operate within the
+call/cc interpreter. We can use them to abstract the details of
+CALLing and ANSWERing.
+
+(defaction get-message-from-user ()
+  (setf $message (call 'example-control-flow-form)))
+
+
+This action CALLs to our new form. When a CALL is encountered, UCW
+suspends execution and renders the called component. When that
+component ANSWERS the caller, execution is resumed at that point, and
+the caller can use the return value of CALL, in this case setting
+$message. This magic is performed using delimited continuations.
+
+Finally, we're able to abstract our logic! We have a generic,
+re-usable, high-level component that need know nothing of where were
+are storing things (the session in this case) and cares not about what
+happens to the value it returns.
+
+We can do the same service to our message component:
+
+(defclass example-control-flow-message (example-message) ()
+  (:metaclass standard-component-class))
+
+(defmethod render :after ((self example-control-flow-message))
+  (<:div (<ucw:a :action (answer nil) "Reset message")))
+
+To make our component properly generic, we don't reset the value of
+$message within it. Rather, we'll specify that the component can
+ANSWER nil, and let the caller take care of the details.
+
+(defaction display-message (message)
+  (unless (call 'example-control-flow-message)
+    (setf $message nil)))
+
+Finally we can achieve a natural code structure, and we have well
+separated our display logic from our control flow.
+
+Our entry point is now clean and logical.. there is no trace of
+display code, no control flow, passing of state, etc.
+
+(defentry-point "hello-control-flow.ucw" 
+    (:application *example-application*) ()
+  (loop 
+   (unless $message 
+     (get-message-from-user))
+   (display-message $message)))
+
+Note that lack of ':with-call/cc nil'.. i hope it's conspicuius by its
+absense. You might be wondering why we need a LOOP here. In our GOTO
+using examples, we essntially kept our state in global variables, and
+jumped between the two components. Now we pass our state as function
+arguments and return values, and the GOTO can be replaced with a loop.
+
+In our small example above, all this goodness doesn't gain us
+much. The following chapters will implement a complex application, a
+common lisp development environment.
+
+
+
+
+
+
+
+
+
+
+	   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+       

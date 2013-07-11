@@ -1,0 +1,1805 @@
+pristine:a5097a0ece5c3f66af65f0ce3fdf193aaaa77de411c3b5ab5150b3978eccfe34
+Starting with inventory:
+0000032517-123cca16b11e090f985c46988d5f23fdff554199bcedef52956998317b41d13e
+[TAG 2007-05-16
+attila.lendvai@gmail.com**20070516130438] 
+hash: 0000018706-12a86a113f57d2ee95a4e8ffaa12a2613c281af3e9de2c3e4ac6c33410cd1835
+[Added make-horizontal-list-container and make-vertical-list-container and exported them.
+levente.meszaros@gmail.com**20070516134317] 
+hash: 0000000551-6fc3c6fe2376f84f34f63c2942c8b1fe926abb11f01a8e972bdb0ab6a1af887a
+[Added missing files
+attila.lendvai@gmail.com**20070516131848] 
+hash: 0000009325-b7d24459792aa428b99e06b21bdebb5fbb16583ef4548cf83098b21e683793fc
+[Added missing dojo files
+attila.lendvai@gmail.com**20070516135917] 
+hash: 0004977994-3188d75ab97bc27f2f737b81cd611d2d759df23deb27f1c369ff1f7ebfe983e1
+[standard-template-compoennt is a simple-template-component
+attila.lendvai@gmail.com**20070517233208] 
+hash: 0000000689-e98a37c60f6bd1092f6c9ff6a3b9f37eac1363947a51066768c25fb963ce049d
+[Fix: do not skip make-new-frame if there's no frame at all yet
+attila.lendvai@gmail.com**20070517233611] 
+hash: 0000000276-61dce032df9eb2b9d9443c4211b8d770569885d1143549aa74e6d13d49beb5ba
+[Added a :action-options for defentry-point
+attila.lendvai@gmail.com**20070517233708] 
+hash: 0000001410-3c013352924e1673243ce4b8b23c2c095a53c184746890e074f851178d719c72
+[Added support to disable escaping for uri printing, export uri helpers
+attila.lendvai@gmail.com**20070518102122] 
+hash: 0000001528-e017424acdadadaf356a2d2f1df47c2d0866600016ef3a7bf7178d51b3c56ba5
+[Fix swank:*readtable-alist* setup
+attila.lendvai@gmail.com**20070519192238] 
+hash: 0000000372-f10468c918661965de19a2a7f58dbfab0226b07a7a38e01b729db7876ff63e0a
+[Added a :send-client-events to handle-ajax-request
+attila.lendvai@gmail.com**20070519192402] 
+hash: 0000000651-d98306d5c3bf4873776bdf87458d5873d408f88230db6003abaccc6a92a2165e
+[Export action and basic-action
+attila.lendvai@gmail.com**20070519192512] 
+hash: 0000000134-e68a439f4199e0918be70194efccaf144dcb07fd724f1c37bfdec16df45df7b7
+[Fix some dojo widget related js bugs
+attila.lendvai@gmail.com**20070519192528] 
+hash: 0000002436-1c155c2c4960bb32c2b917a013cc7c15801346991fa454bd8b782d36f2f9748a
+[Clean up css files, ucw.css is a bare minimum that all applications should include
+attila.lendvai@gmail.com**20070519210843] 
+hash: 0000003493-f5149567309c836797c69bf121ddf54fb3afc0b501a65c564c2f0d951180a6c6
+[Split session handling into a mixin, purge sessions in given time periods
+attila.lendvai@gmail.com**20070520094736] 
+hash: 0000006493-9871973529deb85ad9de32034d6a484887b05dc48e04b846395e70384067d2b5
+[Fix backtracking
+attila.lendvai@gmail.com**20070520152505
+ 
+ Backtracking was leaking memory until the entire session was expired. Now each frame keeps track of both
+ its own allocated and the effective backtracked places. The first is a collection of hard references
+ while the latter is a collection of weak references.
+] 
+hash: 0000004698-47c7082507039390391bd1ef0e46f6b8c0fd47941c9b4b26585fbd7fd2632218
+[Added stress test for call/answer/backtracking/frames
+attila.lendvai@gmail.com**20070521134742] 
+hash: 0000008497-09752082d523e488bc24f1abb98cde9b29e464a7d8f07d3ae0aad44370b925a3
+[Added with-html-element-wrapper, export it
+attila.lendvai@gmail.com**20070521154358] 
+hash: 0000001355-2a12527f6da0efc172f3229c4c4c7442880170268386edb6c3ad70b3d44dcb01
+[Fix action isolation support that broke in the cleanup
+attila.lendvai@gmail.com**20070521163052] 
+hash: 0000000547-e26c4550141b92688398f4a34b3116199b64557834f0263b480f70f4475c8e96
+[Made parse-request-body more tolerant to things like "text/plain" content-type requests
+attila.lendvai@gmail.com**20070521163729] 
+hash: 0000002342-0db962b5a8d5179010581f20a9e5dce653c0f4cf067393028ccf4083d72ba2d2
+[Clean up backend error handling, introduce an abort-backend-request semi-public function
+attila.lendvai@gmail.com**20070521174923] 
+hash: 0000007596-f99a7f1652349e4ff90b37045baa9fc02974d634c8bdd0d02d9b04f2a1c16754
+[Drop unused funcall-with-request-context
+attila.lendvai@gmail.com**20070521175438] 
+hash: 0000000420-dbab701c27b79885ff6faa2b144bb4cb09af30b63d028b90315a1d911caaa64a
+[Revive the examples
+attila.lendvai@gmail.com**20070521175457] 
+hash: 0000004438-03cb355bfd223d6afa691a3b7e15adc49d8d5b13f6bb924f994a6a200e9fd3a4
+[Assorted fixes
+attila.lendvai@gmail.com**20070521175504] 
+hash: 0000003862-383f5bb3a91ab448303f0291853413c759d6b3d085d5de4c4f66e5aa42822e61
+[Generated a dojoDebug div when debug is enabled and there's not any
+attila.lendvai@gmail.com**20070524133859] 
+hash: 0000000672-2f5b690c259b54af687efb73967499c2fedaea6b35f20da1ea476ed8218138fd
+[Include the session id in the name of the session lock
+attila.lendvai@gmail.com**20070524133942] 
+hash: 0000000480-da61b29e655019e8f421ea03b7980984a927ce2135a88b030294a3dc14578f78
+[Cleaned up error handling, and threading in httpd backend
+attila.lendvai@gmail.com**20070524153955] 
+hash: 0000051282-f008ee7b22332b332fde90becae5b52a76f26c545eb9e9f166f79c7ae10c50a8
+[Various small changes
+attila.lendvai@gmail.com**20070524154005] 
+hash: 0000002464-a995f02ed19d6783070dc09ec3b80160c8251f10c8e6a0f7a045c3414fc291c2
+[The araneida and the aserve backends are dead, comment them out until revival
+attila.lendvai@gmail.com**20070524233816] 
+hash: 0000000420-6c28c547f9798d62bb50546701b69319487a2e757f5d86e0502e84716816f003
+[Housekeeping
+attila.lendvai@gmail.com**20070525000303] 
+hash: 0000001064-0a1cccaa934589ec3b6b93298b901d1f09029241f05a5241292d9eba4dcafe73
+[Get rid of the handle-ajax-request, move it into the call-action :around of ajax-action
+attila.lendvai@gmail.com**20070525000338] 
+hash: 0000012071-f3d23140b5622d710a40fe0860263cc181ccef9b9a559fe1cd787e815684fb5c
+[Fix ajax-action-dispatcher, reintroduce the (now internal) handle-ajax-request macro
+attila.lendvai@gmail.com**20070530094938] 
+hash: 0000003259-ef8fa83c7c2f48c808c34ba2224c4fcb5e8c666ed411494bdb646e27c56a0a11
+[Fix response flushing and therefore 404 rendering
+attila.lendvai@gmail.com**20070530230759] 
+hash: 0000001863-2649fd26d05f2b5621dc0f3d59b2b82b1516c58f0808e78fe64828acfa1270c0
+[Signal an error when an action was not found and its id was specified
+attila.lendvai@gmail.com**20070530235342] 
+hash: 0000001362-8bb697659a449bb344910aba44ca169b620736474752d003ec3931b5318593fa
+[Added a callback-dispatcher whose sole purpose is to accept ajax-posted form data
+attila.lendvai@gmail.com**20070604005728] 
+hash: 0000002553-1db1f15fc222206c7f5a21f7b9651c3a4cec9e9fa60d281819a05fd3fdc51a89
+[Revised form handling
+attila.lendvai@gmail.com**20070604115228
+ 
+ Nesting of form tags is not allowed, therefore don't use form tags when ajax rendering and/or
+ rendering a nested <ucw:form tag. In those situations the client side js takes care of gathering
+ the data to be posted. Now ajax rendering can happen indepened from the form boundaries.
+] 
+hash: 0000037896-c350168cd13cf03c2b8c7b8eeea8392fbc722055c6372e523606dea053cdc3c2
+[Change the default listening port to 0.0.0.0
+attila.lendvai@gmail.com**20070604115610] 
+hash: 0000000191-d4efc4d882c9d3abc7ba226490ad764b19b1425355a86cbc651d9dddd41ccea2
+[Update examples with the new form stuff, added a nested form
+attila.lendvai@gmail.com**20070604115649] 
+hash: 0000004976-6fb446f7f972a376d26295bad72f271226f56b41c8b86824f2849ded0418b708
+[Fix: ajax answer status and content-type headers
+attila.lendvai@gmail.com**20070605112737] 
+hash: 0000000246-2ce38ed2bf284d425b38ff7e2d812349a4e415c5b3d739e804b5f17c9d70e746
+[Added .binaries, mark dojo stuff as binary
+attila.lendvai@gmail.com**20070605115046] 
+hash: 0000000323-cf123f3d166821a3020ea3a78ef9766a28170969d8f6219a48b0989e6e0b03e1
+[Fix serve-sequence/-file, mark the response as unmanaged
+attila.lendvai@gmail.com**20070605150907] 
+hash: 0000000195-545ac1b30c6980ecbfe2a594ed963efd21e98fc0b8295a03d2a9feba74a223cb
+[Added +xhtml-namespace-uri+ and +dojo-namespace-uri+
+attila.lendvai@gmail.com**20070605153120] 
+hash: 0000001114-7a229f298203529ceb7335e7bab684fdbdd3d108b41f4281b5d4e316552b43ad
+[Do not alter *random-state*
+attila.lendvai@gmail.com**20070606084059] 
+hash: 0000000173-27c29041aa9d55d3f46cb83d605cdf7fc49035408fb33f7707669054f217d1a2
+[Renamed to dojo-html-text-editor
+attila.lendvai@gmail.com**20070606095835] 
+hash: 0000000475-7b1a3f95c4f25d667a900cc9304d2d69061d958c42e27887cf3b195c70adc463
+[Preliminary dijit support (too early, many widgets are not yet ported from dojo)
+attila.lendvai@gmail.com**20070607130604] 
+hash: 0000002184-e29a3b3e42b2f1d36401c5943f2495bf4ebbaa22fa40535472b68aac46ea3d44
+[Added TODO note about how ajax communication should work
+attila.lendvai@gmail.com**20070607131459] 
+hash: 0000000752-86351665e08deac5762e7dc1edc72e696bef098fc02d500acd492fe75e2a244b
+[Revive the admin application, change the url-prefix to "/ucw/"
+attila.lendvai@gmail.com**20070607131747] 
+hash: 0000000466-c234dc81e951fb92a46209a9261e7ab6d2d569e4f206ac98f650f2307c8d3e70
+[Cleanup threading: implement threading using bordeaux-threads instead of the swank primitives.
+attila.lendvai@gmail.com**20070607132243] 
+hash: 0000026663-f2c652a7335724a26be0a61cd79541e9509c3ddfc1ec2725c3962ff8fa213bb6
+[Fix network stream error ignoring
+attila.lendvai@gmail.com**20070607132704] 
+hash: 0000002481-6528f1bff6e82303f0d6db55e13162aa9f25ea1a86639d8a18c39a4ed10b563a
+[Use the internal _real_ time when logging how much time the serve took
+attila.lendvai@gmail.com**20070607132751] 
+hash: 0000000401-246a9806615cabc72509c31317187f9abcc88ee04a1229ef953282dd16b772b9
+[By default leave alone the loggers when starting up a server; renamed ucw-logger to ucw and all loggers inherit from it
+attila.lendvai@gmail.com**20070607132827] 
+hash: 0000003164-ed23376c4c062a69a3f3e043f50d50e3e735881ae8b0ae79b8581ce762ba81dd
+[Clean up l10n application locale handling
+attila.lendvai@gmail.com**20070607132955] 
+hash: 0000005398-c8182c8c79b9ac9601286e4709c6468e2f70f0c88029acee859781f51d646b9f
+[Added a *maximum-number-of-sessions*, render unavailable page when going above this
+attila.lendvai@gmail.com**20070607133047] 
+hash: 0000002082-2af4f398c5e3f66820a9c5560b64b4288cd6d499a3c94fb271b1eeebb51f0fca
+[Move response handling into the app's service call, so that it's more customizable at the app level
+attila.lendvai@gmail.com**20070607133145] 
+hash: 0000001290-0c4e337b3f7a8d5ef87cc3909b88c6b1d217eda667623045d4e329295501d560
+[Fix defserve 304 not modified response sending
+attila.lendvai@gmail.com**20070607140016] 
+hash: 0000000451-13b4aa02a454146987f7bae8e4928ef3f42787d4dcb1c82fc540dc9e1811a540
+[Make the threaded httpd backend more roboust
+attila.lendvai@gmail.com**20070608174850
+ 
+ Now it can stay alive with siege -c32 -t600S http://localhost/ even though it renders a few 503's
+] 
+hash: 0000002667-8af244e1f5409bdc7f54560f7671d3259e4e2afcecf9713fa7473e66f78e19dd
+[close-request is the responsibility of the backend, don't call it from random places
+attila.lendvai@gmail.com**20070608175013] 
+hash: 0000000610-de168ff686dcfb0655596e23b9a69d9047e7b3c32e2bced5cb5f03cd68e82870
+[Housekeeping
+attila.lendvai@gmail.com**20070608175301] 
+hash: 0000001170-c48c50c828b874d1ba3b87231c0383d24b000ec1407da37ceeb56e8eca24f2b8
+[Added +http... status code constants
+attila.lendvai@gmail.com**20070608175523] 
+hash: 0000006131-974149bdae9e2a4296a9fe534241eb88a759b0f931ad87c3f883609d1be742e7
+[Fix dojo widget inheritance, dojo-widget is important, put it first
+attila.lendvai@gmail.com**20070608175534] 
+hash: 0000000733-c0d2c5e1ec0092babed2c7672702600afe53c0a50d149a7a3bf3489400a5de3a
+[Only get a backtrace when we need it, it's expensive
+attila.lendvai@gmail.com**20070608175604] 
+hash: 0000001325-dedbccd70ab54b81d56f7c33ccf3207b976a9d5b49c318f58149881f166e8140
+[Drop accidentally comitted defcomponent* usage
+attila.lendvai@gmail.com**20070609002043] 
+hash: 0000000455-b210b5b140892ed616fb162b43471bb3a6aee76639cb1922e7585a474d168eae
+[Fix some asdf dependencies
+attila.lendvai@gmail.com**20070609121820] 
+hash: 0000000611-3f2232c0502888dd9a091d0f0b7f05e0cda71520f3cefc6f6849ec1e9be576aa
+[Don't rely on weak pointers for backtracked places, it's too expensive and we can manage it ourselves
+attila.lendvai@gmail.com**20070608183647] 
+hash: 0000005746-406a8940c255688b20e9fd649a833f64514904b09e92830aa8263a7c3997a5aa
+[Fix multithreaded httpd false 503 reporting
+attila.lendvai@gmail.com**20070612090946] 
+hash: 0000000338-85e4d8b002ffd31fcf120e1e8cc92eba4f67bb922465d1989d518ea430d4816e
+[Delete *ucw-tal-root*, use (make-standard-ucw-tal-dir-list) instead
+attila.lendvai@gmail.com**20070612175900] 
+hash: 0000000525-e0739a1f15dc48a8d4ba7f987042118d6311117b5a7a2e5d20e302f188f86c77
+[Some changes to the exports
+attila.lendvai@gmail.com**20070612175945] 
+hash: 0000000213-4b7ae96854a3173053b656ee5ccabd447caf6d105c610682f8411018068c09a5
+[secure app tinkering
+elliott@iparadigms.com**20070612155159
+ 
+ I've created a few modifications to the secure app code.
+ 
+   * fixed an error in (setf %session-user) in which a "default" value
+     was passed (nil).  The setf version of GET-SESSION-VALUE doesn't 
+     have a need for the default value.
+ 
+   * changed the user-login component to be a subclass of html-form.
+     This corrects the unbound *current-form* variable error.
+ 
+   * Moved the window-component stuff (and the status bar stuff) into
+     a new component called user-login-window.  I've not tested this as
+     much as I'd like, but I don't have much time in the next few days.
+ 
+   * redefined the SUBMIT and CANCLE actions to answer the user-login-window
+     component rather than the user-login component, so that it's results
+     can be passed back to the secure-application-mixin code.
+ 
+ PS- I think the secure-application class can be fully depreciated.  I don't
+     see any mention of modular-application any where else in ucw_ajax :)
+ 
+ 
+] 
+hash: 0000002584-ee338a679bac3ad244b868a59b515c0ef1d9aaa4d1a0b2f2ba04906ea586860d
+[Fix some bitrot
+attila.lendvai@gmail.com**20070612195620] 
+hash: 0000000403-154af411aba6f573e3bf1036f3ecf4c76579bcb2219892a90e807ab6952646f8
+[Fix some issues in the new form code
+attila.lendvai@gmail.com**20070612200134] 
+hash: 0000008866-be8a035a9084f0c13c5c6aab7b5178f9365627bb3822fb51cb6c457f58db834e
+[Submit callbacks are cleared after each render and need to be re-registered (similarly to actions)
+attila.lendvai@gmail.com**20070613173849] 
+hash: 0000001894-7985e44fb180746fb110aea8e6adb0e9d83e21a375fd9bfcf42fb0de2c27c818
+[Follow changes in the examples
+attila.lendvai@gmail.com**20070613203327] 
+hash: 0000000644-8bdc02094ba53bebe0929d4f325aeb9ee27a1b12f64db647db58a4891fe7a547
+[Fix removal of progress label if there's an error before firing the request
+attila.lendvai@gmail.com**20070613203453] 
+hash: 0000000637-1ee9b154fef4460a982fac55f0b1d9461fd2356232004cbb86e1b63f5d1778bc
+[Smarter way to get out the data from dojo widgets
+attila.lendvai@gmail.com**20070613203523] 
+hash: 0000001745-cbf691e83a2c9b9856d01b6ce6b39ba8749a88706c4e606f461e514af7f30859
+[Revive ajax stuff on ie
+attila.lendvai@gmail.com**20070613203854] 
+hash: 0000004499-3412294e496b7f5fd4151463e1ef31bc82dea16d66344bb5039a12856ec4175a
+[Support specifying the :wrapper-tag-name for <ucw:form
+attila.lendvai@gmail.com**20070613210215] 
+hash: 0000000362-7eb72f06757515f7bf6c6845ed5b5bc2e1f5cda8c7aae03644e53a93030b3cd9
+[Err, really fix false 503's with multithreaded httpd backend
+attila.lendvai@gmail.com**20070614063949] 
+hash: 0000000369-091b21b349483169429cd032233feacbc601b35598c755fe9e7784f59aa2e79e
+[Make the apache2 example config more newbie friendly
+attila.lendvai@gmail.com**20070615075006] 
+hash: 0000001659-0badf39a39a76cd7200f81438337d84c68fd04de87bf012246e9484f043ffa62
+[Follow the rename of rfc2388 to rfc2388-binary
+attila.lendvai@gmail.com**20070616123931] 
+hash: 0000005828-ba4775665dc7efc03b3d37edbed01045e81971b62cbce03040ff94c606abc10c
+[Drop split-sequence dependency, we already need cl-ppcre
+attila.lendvai@gmail.com**20070616160345] 
+hash: 0000000904-ce04582ce3c421aa64529ef1cd3248e8303944945da9f9331c400b9098bf3934
+[Renamed to accept-headers.lisp
+attila.lendvai@gmail.com**20070616165710] 
+hash: 0000000268-387e4637a7c5d1182249ad0bb26c503173c555cc569d6a9611c2608213f6642b
+[Factored out a basic-backend, prepare for an iolib backend that will share most of the code
+attila.lendvai@gmail.com**20070616171801] 
+hash: 0000029404-6977fb31d6b2b02b6087d3f2bcb55ae8fa28c0540405b59a738f97f72f4f8466
+[Added a :length argument for length-validator that checks for an exact length
+attila.lendvai@gmail.com**20070616172347] 
+hash: 0000000454-5fb8e75b17a0673ad2e5e64d3f03c0a7d584d26ccbc8ef94b8b34d33d58d62f3
+[Added an ABORT-ACTION that can be used any time to abort further processing of the action
+attila.lendvai@gmail.com**20070616172641] 
+hash: 0000005136-807da6f3aef98ce6957a7096b3e8983bfc9ccc9e660347e9122dc121affbd36f
+[Split out minimal-application from basic-application
+attila.lendvai@gmail.com**20070616172823] 
+hash: 0000001927-06198600e865213c7454aff6d4bfbb0a742ee0682b24640d0345b4404d6976fb
+[Updated the tests
+attila.lendvai@gmail.com**20070616173408] 
+hash: 0000005799-b55e49728a5c01ba5904f2ef46a665c9fbf2defecbd4407fc52a8c05a8cbea7a
+[Dropped the kludgy js-server-callback, added a more generic js-to-lisp-rpc
+attila.lendvai@gmail.com**20070617133727] 
+hash: 0000007584-c9412a23a83526bac0b3f5e99b03b54248738e6d628ae44f1890d8c6375af6ba
+[Added dojo-inline-edit-box
+attila.lendvai@gmail.com**20070617133858] 
+hash: 0000003189-fd9fcc5f3b3501ee76a5b656e1996912290744d53eff125975a247fb2154d635
+[Fix abort-action
+attila.lendvai@gmail.com**20070617134105] 
+hash: 0000002141-ebeb7af51aa2f085d2348acdc1db05a435d1d8bd2190f90d8ee6ff9d508f50fd
+[Support rendering a <ucw:form as a non-<form even without nesting or ajax
+attila.lendvai@gmail.com**20070617134306] 
+hash: 0000000675-ae678f7442eec6f3c1e13cb34c758041fee72f55148063c93850b7c2611116a6
+[Housekeeping
+attila.lendvai@gmail.com**20070617134339] 
+hash: 0000001209-16823a04ec973f9669870e7c065f216b4e69c4434de11bded86bed90b7548e89
+[Added dojo inline edit box example
+attila.lendvai@gmail.com**20070617134450] 
+hash: 0000000735-7652940d37ff116dddb9bcb00a5e2416170c3e9a5f5135d1b20b2b76b2998d66
+[Fix the add some numbers example, follow form changes
+attila.lendvai@gmail.com**20070617134517] 
+hash: 0000001419-4165ccabb752c55827b1efde4d7acc742538b372a3f0056c9e9c00e8b82bc154
+[Renamed peer-address to remote-address as suggested by Cyrus Harmon
+attila.lendvai@gmail.com**20070618211655] 
+hash: 0000001554-04da1009998c8f4169df918c186f0dc4183b5a1f93b38022980e4781752d19aa
+[Make backend locking use a recursive lock
+attila.lendvai@gmail.com**20070618212120] 
+hash: 0000000356-3119bf906fe5e015a3b62d559c0d793dfaf8cefdf59be67274ab4985054a2cfe
+[Added an iolib backend
+attila.lendvai@gmail.com**20070618212142] 
+hash: 0000010898-15a9975f9a3982e69c6189d4d535800bc60781ba7f57a84414e1f63e25e99511
+[Added missing iolib backend stuff to the asd
+attila.lendvai@gmail.com**20070618213029] 
+hash: 0000000479-6a234cade399b5f1edae51989ad6b420e989ebb3cc37077a0e583c832f30130e
+[Make the test more iolib friendly
+attila.lendvai@gmail.com**20070618213713] 
+hash: 0000000845-ec3042b6901b063583d742f5e3766516167a615822ff4fdec446ab9fef4a028f
+[Move cl-l10n dependency into an asdf-system-connection
+attila.lendvai@gmail.com**20070621104846] 
+hash: 0000001259-f0431b57da1600d66ba930e8a59c3ef3c2a0a04cdc38ba40fae55191d3c36988
+[Mainly comments to some of the backend code
+attila.lendvai@gmail.com**20070622085310] 
+hash: 0000001022-7c1b8ef2c00448c92f1b1f884ecf8dfcf6587038a0bce654eb256a2345121164
+[Finish the previous weak try to move l10n stuff into a system connection
+attila.lendvai@gmail.com**20070622085420
+ 
+ Move around some l10n definitions and add some dummies that are available
+ even without l10n being loaded.
+] 
+hash: 0000013529-a6f56e2867f1721471da1a88615877ac3b585485f95e8bca6c14cf6d23431e18
+[Use the ...-syntax naming convention
+attila.lendvai@gmail.com**20070622085859] 
+hash: 0000000958-f43996af243ed69590caf54b263ce62f780539e0a021a0bec61919a8e1dba262
+[Fix l10n separation
+attila.lendvai@gmail.com**20070622094959] 
+hash: 0000000218-6dcce5f89d8522e5059b6a3662b912f060fc41820ee56ce27f6a8fedc785e3a5
+[Fix even more issues with the l10n split
+attila.lendvai@gmail.com**20070622104457] 
+hash: 0000005687-6f641e627259ff1402fb7f56f1513a5c1c126f664304265b378478a65632c52d
+[Fix start.lisp after the l10n split
+attila.lendvai@gmail.com**20070622104857] 
+hash: 0000000350-83be0279b150e6ce6dde936d79d8bd9ad636df35bd8213bef1055793d79877c5
+[widget-component must be a full standard-component. use html-element and with-html-element-wrapper if you need a barebone class.
+attila.lendvai@gmail.com**20070622130602] 
+hash: 0000000614-395fa093a8f3e7724f80155ab83a7a0d222e6b3f136cd59dd523006adc3031cc
+[Fix even more issues with the l10n split. It turned out to be more headache then expected...
+attila.lendvai@gmail.com**20070622130815] 
+hash: 0000005829-ba75351d328e7f3b981ebe9a1d4fd92b839e5c55cb2667ab04d840e4e4f4d00c
+[Follow iolib changes in the iolib backend, fix graceful shutdown of the backend
+attila.lendvai@gmail.com**20070624135356] 
+hash: 0000003059-afbc350af45b54db74478f88539884a84ee4dc29c666cce3a3a51cf02f941210
+[Fix checkbox, add ucw-checkbox class to it
+attila.lendvai@gmail.com**20070624191611] 
+hash: 0000000715-020a069c2e5bd060a9b69d2f744cd7cebc93f4e73cfd269c5dc36046612bc9f6
+[Form field registration needs less js
+attila.lendvai@gmail.com**20070624191622] 
+hash: 0000003587-90a885971e9a5d3abef744e284a73b7aca88e6f85dea341116f4e213b4d0e7ce
+[Fix some dojo-widget stuff
+attila.lendvai@gmail.com**20070625220850] 
+hash: 0000003177-3429ec63046af8e8be7abf604935048708c529b36036cbd5092be93beade250d
+[Follow yaclml tal changes
+attila.lendvai@gmail.com**20070625221619] 
+hash: 0000001093-339c9d9915da090f5d7c230ebaee5ab411d0143bff940791bc3ea204a57e2932
+[Use -foo- naming convention for non-hygienic macro variables
+attila.lendvai@gmail.com**20070625221748] 
+hash: 0000001850-dda984a81475c7420b27000c74f12c66098d8050076a88a441cd2189a58f1353
+[Housekeeping
+attila.lendvai@gmail.com**20070625221845] 
+hash: 0000001231-d573425553dfc225b8965e761079d0e1399f6091d3f46d298bf8fd601c2ab15a
+[Added captcha support, which is a custom application that keeps an LRU queue of registered captchas and needs a captcha factory function
+attila.lendvai@gmail.com**20070625222440] 
+hash: 0000006354-cf76068e126b8279a3295d1da3d6b9179765398e7f78bc0a658adc5339e356c2
+[Follow iolib changes (credit goes to Stelian Ionescu)
+attila.lendvai@gmail.com**20070629095410] 
+hash: 0000001091-ba9d375fc2636ca464343bb6d9ee490bbb9486f5b41bf8c3e8d803237dbe4a1e
+[Fix: bind *dispatcher-registers* as documented (but dispatchers needs a cleanup, probably based on lambda's and capturing)
+attila.lendvai@gmail.com**20070704193315] 
+hash: 0000000946-22d63fd7e220eeea06031ff280be4c3d7fcc9595aef7c5cd1f504cbd879d213e
+[Added make-cookie that calls escape-as-uri on the supplied path. This fixes session-cookie-application with unicode url-prefix.
+attila.lendvai@gmail.com**20070628163611] 
+hash: 0000000962-57df775e410e2460cb0dca94b3a1132bc4ae429e90f833a00028defffd9ce58e
+[Fix uri escaping, the path was not propertly escaped causing problems with unicode url-prefix
+attila.lendvai@gmail.com**20070628163714] 
+hash: 0000003096-c324f229c8eef56f80abb75fa0f24638d89eb04e99fa692122f35d2a1d9b5708
+[Export some cookie helpers, escape cookie values as uri, so you can have unicode stuff and cookie control chars in the value
+attila.lendvai@gmail.com**20070629231431
+ 
+    #:add-set-cookie-header
+    #:cookie-value
+    #:make-cookie
+] 
+hash: 0000001334-a667361fbaade2375bae0059674e26d493d35372572cb8da28b7acf04df6a337
+[Fix some issues with js-to-lisp-rpc
+attila.lendvai@gmail.com**20070704224814] 
+hash: 0000003905-9deedbff2332e5d68caf8a3acbbb9d3e85303064ee88909bdcd73d95feb61631
+[Move the render :wrap-around of template-component to simple :around for better customizability
+attila.lendvai@gmail.com**20070704224956] 
+hash: 0000000759-2f9708733888842f3b52af161bebf60c35eee712e844f486d6e3d1d8aaa0e01c
+[Fix some #"" reader bugs
+attila.lendvai@gmail.com**20070704225142] 
+hash: 0000000732-204f74c072f0d1e7fa1f0eef9fd865e34738c5177932ed63fbc0b81cd1c37039
+[Fix :through-redirect of register-action when used with invocation isolated actions
+attila.lendvai@gmail.com**20070704225247] 
+hash: 0000002686-6f6e8a77bec90f8467f1732d46175f746f80de9a33af24186b8c3779a47db3f5
+[Added with-unique-dom-ids
+attila.lendvai@gmail.com**20070706152552] 
+hash: 0000000268-b858a54d14598930f563eca9ca742c703dc97829a9060dd23c6f1de8fcec00ea
+[Fix minor issues in the tests
+attila.lendvai@gmail.com**20070706235650] 
+hash: 0000000339-32adc33158726605eca9bdaca851cd541baa8bc9e76231319b328cb2a0a1e862
+[Follow iolib changes in the iolib backend; added worker thread starting up to a max limit
+attila.lendvai@gmail.com**20070706235950] 
+hash: 0000002136-db6f86aee53973d9a613b41c2257186aab9a9cef6682eadb7818ea0211b914b1
+[Client side operation for collapsible-pane
+attila.lendvai@gmail.com**20070709120519] 
+hash: 0000009787-4033ae1f2c63b749beeb337e223063481fe8d24bd5f2a36fd385847c31c7c9b5
+[Client-side mode for switching-container
+attila.lendvai@gmail.com**20070709120530] 
+hash: 0000003555-0659da50d712643593c49eb29cc3827179fe23a140cf06a6ab8b4f5ca4331323
+[Fix decorate-with-invocation-id for url's without any parameters
+attila.lendvai@gmail.com**20070709120634] 
+hash: 0000000369-1beb3f73f073e0221facd83a0c216c6b9a7298ea744222615959dd67eba0435c
+[Change default :invocation-isolated of actions to be true 
+attila.lendvai@gmail.com**20070709120705] 
+hash: 0000000176-2739075df4a5df7dc94a1ce2cd90f4681cb9d7d8abae7377f29b61f46fb07725
+[Housekeeping
+attila.lendvai@gmail.com**20070709120750] 
+hash: 0000001212-a4d4eb6fabf518a52447ed0994a8e314a0ad3408e0802f5108cbc46e062ce57c
+[Fix current-form
+attila.lendvai@gmail.com**20070709120804] 
+hash: 0000000256-af63a17d988960fd6a5b9674da5c83df10cf581b1a674ec0b03ac4fa59b54620
+[Fix: added missing enable-sharpquote<>-syntax to container.lisp
+attila.lendvai@gmail.com**20070709124550] 
+hash: 0000000177-6d90ec8824e2639a4df0d0ef226405e571a202ea33eea691ec48abce112f3e18
+[Hardcode utf-8 as encoding for some types in serve-file (and add a TODO note)
+attila.lendvai@gmail.com**20070722193830] 
+hash: 0000001219-fecc9c014598f0ec8b3bd595656271919575cfad5c24e6be6d85d3106371135c
+[Some localization changes
+attila.lendvai@gmail.com**20070723111502] 
+hash: 0000000757-55e2a8078bd3b89f7f9b2f8185131ca96b5cb7ac78133ab42ad0529e6612f89e
+[Export session symbols
+attila.lendvai@gmail.com**20070723111521] 
+hash: 0000000135-5fb8e0b1bb480195db2388b67098b80faddb7c9256435229dedcabef61356e01
+[The indirection action of :through-redirect t actions do not need a new frame
+attila.lendvai@gmail.com**20070724111138] 
+hash: 0000000357-04a43ebc1091a1a6db1f725b4bbefa5457dbd2429ebf3da811b195e826b9ed8d
+[ajax-action's are not invocation isolated by default
+attila.lendvai@gmail.com**20070724123053] 
+hash: 0000000281-f664bd795017c509f76f51be99f5e3c40217f38de9740409c570181955112676
+[Fix: properly drop expired sessions
+attila.lendvai@gmail.com**20070724203452] 
+hash: 0000000522-1ad07a0a58e8aad86466f61e0118f4addd194659faa79f2611ea65d0346e90d9
+[Annotate some optimizations on parse-accept-language-header
+attila.lendvai@gmail.com**20070731234253] 
+hash: 0000006056-1939bc4b36f3fd9122e568dd340cc8a22aea15a148b4acc22904e178caf09609
+[rename l10n logger
+attila.lendvai@gmail.com**20070802144002] 
+hash: 0000003606-a5e6e71bd3022c873402c361be0855f154394323965506374747bafcc80f1384
+[Added support for setting the client timezone on the session
+attila.lendvai@gmail.com**20070802144334] 
+hash: 0000001680-5e33f89b448503da40f2023c13f3e52793d8f775a049bd84026c135e75c2299b
+[housekeeping
+attila.lendvai@gmail.com**20070802155209] 
+hash: 0000004875-a3f83bba56930eb468e94bbc5a51d19300969f52dc256cc5f2a886561a5bcd7a
+[:remember-selected-child-p for client-side switching-container
+attila.lendvai@gmail.com**20070808192443] 
+hash: 0000005162-ccd13152f3a24586a5d21add6ca31d49ff36dd622eec4d8c0a62816bbf529ab0
+[rename to iterate-visible-dirty-components and record a TODO related to them
+attila.lendvai@gmail.com**20070809222007] 
+hash: 0000001787-e6ddc81f39ca618a0db136990e812f4e14eaa62ea3bd8c6337ea983e1c06b1cc
+[switching-container-selector-js now works with component keys, too
+attila.lendvai@gmail.com**20070810132430] 
+hash: 0000000767-f13bdf1c829d2f87e579e2e66b7158dd18c2ccfd4838d97274509f2953e7756f
+[Updated dojo to 9882
+attila.lendvai@gmail.com**20070731234229] 
+hash: 0002238966-83a0c7c90497dea969e3f6d4ffc6e24d3b51735cfca12319d9db1ec97bff7462
+[fix upload example to follow <ucw:form related changes
+attila.lendvai@gmail.com**20070814122105] 
+hash: 0000000246-e96f29cb2c21d0b6cc2ba587aee9bc5b0cd7000aeb5bd213297b22cc6c5b4486
+[added support to use a different js handler in js-to-lisp-rpc
+attila.lendvai@gmail.com**20070814122245] 
+hash: 0000001585-f29d6bece41123e53264c008321200667fce9020615ff0aa11fc65e24dcc57f2
+[funcall-with- was renamed to call-with-
+attila.lendvai@gmail.com**20070814123738] 
+hash: 0000000592-af338e85799e5bbe433586d2e2e23c216c9fa17cd43b6a3917514f60509f8f7c
+[use call-with-rendering-environment where apropriate
+attila.lendvai@gmail.com**20070820092256] 
+hash: 0000002811-487e612a4d967d5444f47af4b75443ebb9f371183f33e9e74e0d4cd52b05dbf0
+[added call-with-rendering-environment
+attila.lendvai@gmail.com**20070820092436] 
+hash: 0000000837-5de9a640b36505d3d918f892e9394dbd580a0e5c61f8ed37126e419e0c2a884d
+[<ucw:form is only nested if the supplied html-form is not alread bound to *current-form*
+attila.lendvai@gmail.com**20070820092818
+ 
+ it's needed because call-with-rendering-environment of html-form needs to bind *current-form* but it does not mean that
+ we are in a nested form when we reach the rendering of the <ucw:form tag.
+] 
+hash: 0000000716-3a07f4316dba96540d54f97159145de855c10c5184315a6dfa478438adc51e05
+[refactor ajax rendering to use call-with-rendering-environment on the parent chain before calling ajax-render on the component to be ajax rendered.
+attila.lendvai@gmail.com**20070820093715] 
+hash: 0000002905-fc18b1f17e553ef829d6311bf23a9eb912f2e0724c7ed2fb66290886ca33c0c4
+[trivial changes to the examples
+attila.lendvai@gmail.com**20070820093833] 
+hash: 0000000344-bed003a70bd2738759d34c04ff85492784631d000dd5f7b4564f92bf345992e4
+[fix: drop registered form fields when they are not in the DOM anymore (to fix form dirtyness checking)
+attila.lendvai@gmail.com**20070820100543] 
+hash: 0000001503-6561e1fdb67abb7216e41ed0236cf7e8b88e59350bef0d4fa15f42cd8a125856
+[housekeeping
+attila.lendvai@gmail.com**20070820170509] 
+hash: 0000001852-6b96ebb582fb2a546f038c526dac3855c622ca25c4e0b05a275b0f1ee54a581f
+[Fix client side collapsible pane onclick js
+attila.lendvai@gmail.com**20070824190411] 
+hash: 0000001314-b2f6764bafae754a1b9d31157aa3bff838bb0172fda3ecd2c494d1ca6065252c
+[rename funcall-as- to call-as-
+attila.lendvai@gmail.com**20070824190559] 
+hash: 0000003180-3eaa13cad4ae3b573d3d82d8019aa9898fee64a9d146abcc7c36474762671bcd
+[Added call-in-restored-rendering-environment; renamed to call-in-rendering-environment
+attila.lendvai@gmail.com**20070824190617] 
+hash: 0000004072-ce01449114ed34866a68b1c6d0219c16ee03fb84867e76079a16f5cdda7d8242
+[small change create-server to make the boxset's start.lisp happy
+attila.lendvai@gmail.com**20070827121955] 
+hash: 0000001240-9e0175718e3c0f0e05fa36c7133c5908c5a55133038cd17278408f6f17997785
+[fix operation of the js side without cl-l10n being loaded
+attila.lendvai@gmail.com**20070827141709] 
+hash: 0000000834-060cc59207ad845f8b5531288454c278c7721d95d6f58ba29a4b269359ad050e
+[<ucw:localized just got smarter
+attila.lendvai@gmail.com**20070831005237] 
+hash: 0000002493-a753a5a7cd6c5afda8d6219b56f701917a8123b286f9ac35141cf1e5b331f028
+[Added in-restored-rendering-environment
+attila.lendvai@gmail.com**20070905140911] 
+hash: 0000000426-45be102549c8d65f3a5f78fa5d7e44da9600f2b5e433a1e9e7bd570a3e318379
+[fix: make render-nearest-ajax-component more tolerant for toplevel/detached ajax component setups
+attila.lendvai@gmail.com**20070906130355] 
+hash: 0000000936-5e9cdeb024bb7f10c8cd4bc0ff65525451979a3922791a8621c59e16ac5274a8
+[add missing cl-ppcre dependency to the asd
+attila.lendvai@gmail.com**20070909002633] 
+hash: 0000000510-56a26db585d5dae596d5be12237ec8d43c479a79f60736587c8a2975a7c3b9c4
+[Added wrap for textarea. Patch by Sasha Kovar.
+attila.lendvai@gmail.com**20070909095448] 
+hash: 0000000461-29cceedfa01f019bb53eabd29a8ee7079775e45023edb74b3ade0aea7ab9f439
+[added :log-to-console-p to create-server
+attila.lendvai@gmail.com**20070913211647] 
+hash: 0000001100-335789dfd0e29a43f13efa20aae9280e2e57c923a4181bd6247a04b1cc2aecbc
+[housekeeping
+attila.lendvai@gmail.com**20070913225928] 
+hash: 0000002182-eae58ac3b1326825d5b7ee91ce82744c49690e69b6ced0ca673da41698d78338
+[ucw.widget.switching-container.clear-selected-child
+attila.lendvai@gmail.com**20070913225945] 
+hash: 0000000308-1aa0a2e21f39bb4d9d6e0c4f4d440e5ce55e498b50bea215c01f3f5397390f12
+[Clean up cookie handling. WARNING: api changed
+attila.lendvai@gmail.com**20070913231700
+ 
+ Added a separate cookies slot for both the request and the response with the
+ approriate helper methods.
+] 
+hash: 0000005978-0e8879f6f828245eca45d5d889195e2e0186d6fe89d8947e592111071ae5a7ea
+[follow cl-l10n typo fix
+attila.lendvai@gmail.com**20070914165835] 
+hash: 0000000512-d6230d81b0c6e02849318642fecce7af1f140cbd9d2401a097e630be098e2b38
+[fix counter example (tal/action stuff still needs a proper cleanup)
+attila.lendvai@gmail.com**20070914165930] 
+hash: 0000001156-601b58c74fc78d091590ca99d986231e7c6dd1a8859da56ea314167d7218d3b3
+[renamed *load-with-debug-p* to *load-as-production-p*
+attila.lendvai@gmail.com**20070914170714] 
+hash: 0000000727-407cda4bff88c606f595e0d9ac8b83f9683b9376140caafe4c3a042870209abf
+[small cleanup in ajax-differences.text
+attila.lendvai@gmail.com**20070914180850] 
+hash: 0000000613-9b3a14f6b5d8712aeea42b8a21583d7ad8e62c59f5d764a3c5c91cb56d4c2fa9
+[l10n-app's default-locale(s) are always appended to the locale precedence list
+attila.lendvai@gmail.com**20070914212708] 
+hash: 0000000584-adcaab78a6e6702bf06836336ba2215b50202a755163da5d8ae7aaf0ab155dbd
+[deajaxify the dynamic form example's menu item to restore its usability. ajax-rendered forms need ajax actions, too.
+attila.lendvai@gmail.com**20070917171231] 
+hash: 0000000351-c40c0d0d9ca11f061b415e5845dbb69610b33506163f296d69e35db927e88613
+[a little bit kludgy fix for ajax requests to timed out sessions. ajax answer processing still needs a cleanup.
+attila.lendvai@gmail.com**20070918223622] 
+hash: 0000003969-a0f498f096efd6b82867b11e298463737ead3bfe31f1ec624cd26532bd8854a5
+[make the mod_lisp apache config for the examples a little more clear, added create-links.sh into the example's wwwroot
+attila.lendvai@gmail.com**20070920084621] 
+hash: 0000000813-f59ccffc48ffb6e85d8686bfedda3439a01a30c6a391051f718be74e7cb64528
+[Added *request-content-length-limit*
+attila.lendvai@gmail.com**20070921140555] 
+hash: 0000002107-884a941bd1dc80fa47a7a0b422752616f27b35726e33775f6ddca54718912d2a
+[added some todo notes
+attila.lendvai@gmail.com**20070921140725] 
+hash: 0000000898-5b31497382190e8cbfdba24e3b2835dcc8c456fba6695549723a33964967f02a
+[bind *request* as early as possible
+attila.lendvai@gmail.com**20070921140834] 
+hash: 0000000737-193ad43d094a4810a81308ad2d75da37a7321374128ef8f6e42fdd9bf5ad8f91
+[small cleanup in file upload
+attila.lendvai@gmail.com**20070921140915] 
+hash: 0000001121-86495df2f45217fddae7b74b9b05926d96d86d1a6a7be8158fdc9e77d10bd198
+[fix importing of tr nodes on the ie side when received through an ajax request
+attila.lendvai@gmail.com**20070922153428] 
+hash: 0000002442-4e769d87ebcaa88750adc1a355ee4d7ac71c953ef13e73bdda8446788ed69b1c
+[send down parenscript-dispatcher's result as utf-8, so that it's possible to use unicode (in the js names)
+attila.lendvai@gmail.com**20070922154250] 
+hash: 0000000544-907011ae18fdb5d616606eb0ae6981a6458686bd6edfc778238430e4c7c47b45
+[move the default js-to-lisp-rpc-handler into per-application
+attila.lendvai@gmail.com**20070924195225] 
+hash: 0000001706-2fb12b1ddb7e6525ef258bc938f5839d2add195cff2382f3d0cf213a934489a9
+[housekeeping
+attila.lendvai@gmail.com**20070922154733] 
+hash: 0000005824-d4348980f3bb91ea7fba7a834a1f1e12e3e10b69d2638dafcb36ebe0c3ae2a39
+[add "form" css class to forms by default because ajax-rendered forms are rendered with a DIV
+attila.lendvai@gmail.com**20070928111846] 
+hash: 0000000392-a16cda8260e18eecf65847fd6be65397bb8cdfe8393dec98fffd6ba28e04c584
+[Added support for extracting X-Forwarded-For header in a proxy setup to see the real remote address.
+attila.lendvai@gmail.com**20070928162659] 
+hash: 0000002216-7cbef299f295deff396568a7d536cbe2aa48fa9e21c3781b283cd78e10eef1ec
+[component-body-mixin tolerates nil body in which case it just doesn't render anything.
+attila.lendvai@gmail.com**20071001124109] 
+hash: 0000000242-6d35accba7763ce734ae4cb80eda6681a0bd2e80d3e0167695759d6a08103e52
+[added effective-window-stylesheets which is an nconc method that lets users customize the stylesheet list dynamically
+attila.lendvai@gmail.com**20071001124158] 
+hash: 0000000825-8e9f9c38dfdb8845581b6db0e417815e9003eda49c374ca4e702b970e7da110e
+[render more info when errors happen
+attila.lendvai@gmail.com**20071003164242] 
+hash: 0000000226-59628ed52273253246472e5d9e2241221bdd863ef0146aedf6b3a4cc2b1af228
+[housekeeping
+attila.lendvai@gmail.com**20071003164336] 
+hash: 0000001443-95f924353661b1aa493ca5c3aab6b403278af3510b6a90cdde44fbcc2d9a5477
+[fix: rerl-error only captures *context* when it's bound
+attila.lendvai@gmail.com**20071004100147] 
+hash: 0000000372-a5d023eacfe5d2e7bde7bd0db967dc0e6ad48ff2bad16a6718b4a00f4d7a47e6
+[add a few args to serve-file
+attila.lendvai@gmail.com**20071004160856] 
+hash: 0000002847-ad1863106436eb9191fddf2737b38b5b95a86be1774926d0686ddb28607e38f1
+[speed up script tag evaluating in ajax answers on mozilla by using .get-elements-by-tag-name
+attila.lendvai@gmail.com**20071005103607] 
+hash: 0000001576-00ad825449a5b3df490ac387ef4710018d73a3f5edcf0eeef99db14cb8042457
+[Follow rfc2388-binary changes (added an abort-callback to delete temp files, optimize file writing)
+attila.lendvai@gmail.com**20071005140404] 
+hash: 0000002027-f6c2f8b93088c2d4e9a749cba5dbb62759b8b0469599bff61b208d81fffaf32b
+[fix the previous ajax script tag lookup optimization
+attila.lendvai@gmail.com**20071005143833] 
+hash: 0000001438-a9d537d4f604f42f76eb1217e863cb4fa6cabd26fbdf47b42d587f1d5cd5b67c
+[added encoding-type slot to form component
+attila.lendvai@gmail.com**20070921141049] 
+hash: 0000000335-1ad61b924f9b2f391b769b7406fff0937e1ba8f9464150b6dce76e96fb31e11e
+[Leave alone *default-timezone* and bind the client timezone to *client-timezone*
+attila.lendvai@gmail.com**20071008185643] 
+hash: 0000001986-2386a34cc6662968dacccc05eeea2c03f14ef2e959d79dcd2035d448ea53023c
+[display errors on the js side only once
+attila.lendvai@gmail.com**20071011164131] 
+hash: 0000000370-f23cb164a068bcc7a186f8d6dea5fee630afd6e53959b5d5912802dfccab703b
+[remove the _ prefix from session and frame values, so the +session-id-length+ gets back its meaning
+attila.lendvai@gmail.com**20071013014336] 
+hash: 0000000411-d44f921fbfca53d41d84077f37088d386f6f665211edf270809354feac32dd5f
+[small fix to actions in tal files
+attila.lendvai@gmail.com**20071013014521] 
+hash: 0000000379-a85ba0861585e5e34d322afad86823005de52d04ad0a7a2ed588d8a1a68b7501
+[added on-load js macro to shortcut dojo.add-on-load and the lambda it needs. use it.
+attila.lendvai@gmail.com**20071014154618] 
+hash: 0000009478-c3c89b4a1c7e5f69cc733f91750da37eb4e770b85f2bb98adf5a7c8bd4d9daa7
+[enable the faster script tag search for ie. seems to work fine...
+attila.lendvai@gmail.com**20071014182516] 
+hash: 0000000800-77331414e9a9bc26134c94d2fd1952173f842750b6f00d077b72b87d05fcea0b
+[use *request* when ignoring stream errors coming from the network stream, it's available sooner.
+attila.lendvai@gmail.com**20071014183145] 
+hash: 0000000489-827c699e0032753655a176e18e0f0571cf7378a795c8c421327a0b0cb267bea1
+[added ip address utils and types
+attila.lendvai@gmail.com**20071014215954] 
+hash: 0000002060-75e9b4999ad95a1e8f51b2ed54c9637c86459484824bad80cd797c76f0698c3f
+[keep the app locked while accessing its session table
+attila.lendvai@gmail.com**20071015015246] 
+hash: 0000003332-e4719e7b61e24d3883df220c2188aca493021ac0efd5340a42d8f71a870d1fd7
+[housekeeping
+attila.lendvai@gmail.com**20071015160945] 
+hash: 0000001204-68163e576087125891f9202af3e7037cd4e8d8cdc08a5503383ffe6468f9570e
+[get rid of the animation on the progress label to behave better with large/slow/cpu-heavy requests
+attila.lendvai@gmail.com**20071015204659] 
+hash: 0000001246-5172b7a88e50063676c830c0853664abcff657bf359a9de95a9ebee03ecbc1ac
+[progress indicator style
+attila.lendvai@gmail.com**20071015232022] 
+hash: 0000000152-e89da4f8864250c3a5d346a92feb42946e59f7ef4ecfc34240c869b3ef9ae6af
+[delay ajax requests a bit to give a chance for the progress display to appear
+attila.lendvai@gmail.com**20071015233410] 
+hash: 0000001235-7aabf9e95732447a92b77bb14203bbfb08303594fc2548048e71029f1f717aa2
+[added some timestamp related utils:
+attila.lendvai@gmail.com**20071016145835
+ 
+  ucw.lang:timestamp and ucw.lang:timestamp<> that renders a localized representation of a local-time (using cl-l10n)
+  <ucw::file-modification-time
+  <ucw::url-to-file-with-modification-timestamp
+] 
+hash: 0000004377-6b6ea9199a456119d0f6fa55c140bb183a94a1eca6a5c4c8e4265b940ef8b258
+[factored out render-url-to-file-with-modification-timestamp
+attila.lendvai@gmail.com**20071016160642] 
+hash: 0000002792-5ccbb5d026972b1c3a25f7d8dc202a9369eb4b01e9ae398acbe67b16ce534ee0
+[fix: missing symbol export for timestamp stuff
+attila.lendvai@gmail.com**20071016161513] 
+hash: 0000000202-011cfe0a3567fca4dff46e23b4bf015e753b91d0f63b2391978f4f09db45aed2
+[fix: sessions were not properly purged
+attila.lendvai@gmail.com**20071016185851] 
+hash: 0000001181-e96b8829573ac32c915ed77f6f1057e465f2dcbfcec6f187da6eb77c495dca71
+[drop read-from-client-string, add internal read-number with a KLUDGE comment
+attila.lendvai@gmail.com**20071016212407] 
+hash: 0000001313-9a461525c18db59ea14c00894c7070951a85c0df2a7b68ea8b8eba9eae75e5a5
+[housekeeping
+attila.lendvai@gmail.com**20071017011942] 
+hash: 0000000463-79808103e1af39e12e3cc251d6a913e7007ac9f7551e7df2ceaf5ab99ae33f7d
+[revive backtrace logging
+attila.lendvai@gmail.com**20071017101602] 
+hash: 0000004771-3b9e08e7f1642397f201b0039acdaa51d878f446a1abfa89ad2e4e24fc7c5729
+[no need for a weak pointer when pointing to the session
+attila.lendvai@gmail.com**20071017111232] 
+hash: 0000000725-087ac70fb6a7b8a39a274b0d3ddc8de6d855c9672f7ff9eced6e9853bda81971
+[write out the strange ip addresses of "X-Forwarded-For"
+attila.lendvai@gmail.com**20071017111803] 
+hash: 0000001452-8779ece1221bc5c9031a0d9c6de8e44351815c1836c68bc268b2e5d0d3fc9343
+[tolerate strange X-Forwarded-For values
+attila.lendvai@gmail.com**20071017120610] 
+hash: 0000000867-beef263eb1eb1288499a6954748d245f01dc5dbe27d5b02bcd186da5ab5b2288
+[return nil when X-Forwarded-For is not a simple ip address
+attila.lendvai@gmail.com**20071017182417] 
+hash: 0000002886-4a91d989f48ba86f5db5926399be0d383b9248100ad4fdb1e435270e168084df
+[disallow-response-caching for serve-file and serve-sequence
+attila.lendvai@gmail.com**20071017182746] 
+hash: 0000001464-5d4c3db42af4372502539049600119cb70aefb5a58a0f2575d90788eafb1d2f3
+[be more strict in http header parsing: there's no point in trying anything else then ascii for the uri
+attila.lendvai@gmail.com**20071017191238
+ 
+ and ie 6 is just simply buggy when sending iso-8859-? encoded stuff there with unicode urls and ajax requests. 
+] 
+hash: 0000000862-3f85cb22208e1a13b902fc3b5ec10d494a280349e23fff4301c579da8abd39af
+[fix client-side switching-container flickering at page load with non-ajax children
+attila.lendvai@gmail.com**20071017203820] 
+hash: 0000003432-3d0fb9f20d5647c6f274346372b0686edb68b188729cd39e61b0770bd816c3cc
+[bah, refix the flicker patch
+attila.lendvai@gmail.com**20071017221127] 
+hash: 0000003756-5077ea0ddd47ab3a641b8a67027bc62cadc66b3be3b28ace17e12469bbdf551c
+[move error logging into handle-toplevel-condition, extend it
+attila.lendvai@gmail.com**20071017232031] 
+hash: 0000002383-b495962292b3982e00bdecbd7a91fb81cf39f8c25d5a9b650d27c24ecb16609b
+[compile time debug level based on *load-as-production-p*
+attila.lendvai@gmail.com**20071018223818] 
+hash: 0000000375-0b2be437553dd27591a1dd93da42ea1edada71749612753585e7c04953efb865
+[make defentry-point more fool-proof
+attila.lendvai@gmail.com**20071018231407] 
+hash: 0000000689-b74e388e0dd6f793308480e2da8cc9c8551ead8dd74a3ab1896b3b4e33e6416f
+[Wrap delete-sessions with handler-case to be more robust.
+levente.meszaros@gmail.com**20071019114521] 
+hash: 0000000438-ef9465677e1b59327c17e5809b28a9f22bf1b2ddfaab9cffde5e1420c7a9edf2
+[fix client side switching-container: try loading ajax children each time it's requested until it is successful
+attila.lendvai@gmail.com**20071019150722] 
+hash: 0000001845-72c23db0ee2203fb88c2c84b3789fd9f57dcc256ca7bfe5942c591826b342557
+[make error reporting for raw requests more flexible when using handle-raw-request
+attila.lendvai@gmail.com**20071021203006] 
+hash: 0000007143-391dabaa8956e366b69ba6bcb1403118a4dcb8bfc6238f157219c4db1e6b96dd
+[make <ucw:a more accepting when using an onclick and a href at the same time
+attila.lendvai@gmail.com**20071021204009] 
+hash: 0000000840-1661b5ed4626c6e661a649983aa8d88fd4a871cb364f3b51e6531fd2113cc375
+[clean up script tag eval'ing in ajax answers
+attila.lendvai@gmail.com**20071021224724] 
+hash: 0000002716-6a97e30f9256f86e0f484db901e2cf27a0b1d8eb9d28f6ebd01ea979369d5532
+[housekeeping
+attila.lendvai@gmail.com**20071022005238] 
+hash: 0000001432-812a99e6df03e15bdf05a8ba9909c00dd1ebd7da606e539bd35a061fd18a653b
+[add the dojo debug container and the progress-container at on-load, so they get at the end of the doc. this makes it more google-friendly.
+attila.lendvai@gmail.com**20071023115001] 
+hash: 0000001412-7019c4ad0a9eb25b420c3cb79fe604d0c0f60dc662f8d2ecd13e53f2de64a402
+[added assert-session-lock-held
+attila.lendvai@gmail.com**20071023203433] 
+hash: 0000001144-56aab862e241389355c4a1123ee84a76e3ac4cf013cd0164a76c5bbe2d6730b6
+[refactor session purging so that expired-p is only called from inside handle-action (so that use customizations on it are in effect)
+attila.lendvai@gmail.com**20071023203520] 
+hash: 0000001470-8fa8dbad2b35f0e116e1936eaa4427ab55bb3de81123ae0320b5f1e5cd1b4a5a
+[fix error handling
+attila.lendvai@gmail.com**20071024084530] 
+hash: 0000000629-1c9c922382aab3a649287ff47d77018e0ad95c92c6b615780393d8e9e750d1ef
+[clean up error handling: when nested errors happen try to log it but let it go through for the upper levels
+attila.lendvai@gmail.com**20071024195032] 
+hash: 0000004378-451185693e99a4f9c9fc60c8c9d9d1910e68c070ce6856bb03dbfb3d9f4ca4c1
+[delete the session if it's found expired, add comment what's going on there
+attila.lendvai@gmail.com**20071024203306] 
+hash: 0000000528-3925b8c31df70dc8e015c70ce5acb868a71a50fde54cac1425e6fa90a80e2353
+[added headers-are-sent-p
+attila.lendvai@gmail.com**20071025210053] 
+hash: 0000000715-538cbf531cd2d043d44d7092d83152909f3e15caf079031870e359d865b07732
+[fix error handling related to raw requests. use the new headers-are-sent-p
+attila.lendvai@gmail.com**20071025211248] 
+hash: 0000000882-60b89aa5aa469dc9f5e6a44e1bd5082b8e4ba3c3922f4b26ff95ba83ff863eba
+[make the progress indicator less opaque on first display
+attila.lendvai@gmail.com**20071025211356] 
+hash: 0000000469-5f63875e4d175d42d17be31f4c05139296764f3514580268093060e9ac70b02f
+[added with-thread-name, use it in the multithreaded-http-backend
+attila.lendvai@gmail.com**20071026000416] 
+hash: 0000002577-81b4955b0cfed6b140b0b64d6e3beef944254698274af7591f174bcafb365925
+[use with-thread-name in call-with-ucw-error-handler
+attila.lendvai@gmail.com**20071026001437] 
+hash: 0000004871-2edee100522e9adf3fbdb312cf3c68c253cff686163c49acceb2bb4c1fdeb31e
+[clean up response sending in basic backend
+attila.lendvai@gmail.com**20071026165103] 
+hash: 0000002263-1bad0a2ab882d6a73b3cabcf96c8f7573f1320b371d954682eac78f6ece6331e
+[send a content-disposition by default in serve-file
+attila.lendvai@gmail.com**20071026172613] 
+hash: 0000002527-e2b540db8e90ef4b73df0acf272f9c358aafd35a7cc953dc43465d500bfebbbf
+[change with-thread-name so that it appends to the current name
+attila.lendvai@gmail.com**20071026172638] 
+hash: 0000001266-d089f16421790679d35cf73476eee5ddfca2b65420649bdd1f8b411d1ea52a27
+[added js side warning at 2/3 of the session timeout
+attila.lendvai@gmail.com**20071027000415] 
+hash: 0000004255-cec6a12b0450c82dfc7b0471fa781494ea7fb816659d68e01109e285490d5ceb
+[disable file logging by default
+attila.lendvai@gmail.com**20071027003844] 
+hash: 0000000471-91efd75e93ae940155c71cd6cf3cc7a9f11d4318e1602e60163ff72224e363f5
+[TAG before-controversial-refactor
+attila.lendvai@gmail.com**20071026182616] 
+hash: 0000027648-00fcb0caac685839dee4ae0acd6bd9013193d7e1e34cd278585df50db01f8cb4
+[drop the remainings of the old config stuff.
+attila.lendvai@gmail.com**20071026184851] 
+hash: 0000004334-19bfadb80e9a5476deebc88789230104287742398a037215b7b6fc0521c3defa
+[added cl-def dependency
+attila.lendvai@gmail.com**20071026184945] 
+hash: 0000000214-75a40847acb2b455076f0dbab3d04032698c3ed032b0827f1489a536b248f543
+[renamed to *js-resource-registry-last-modified-at*
+attila.lendvai@gmail.com**20071026185951] 
+hash: 0000000726-203c38a45d99a88c24c071c6b1738142a73c44239f350eb1b24144e0953c12bf
+[use cl-def
+attila.lendvai@gmail.com**20071026190139] 
+hash: 0000003937-9fa4293d22a0b953adac317cd51114a84062f9a122e4e46a5d09fbdb4c71d98f
+[drop threaded-lisp-p and start-swank
+attila.lendvai@gmail.com**20071026190508] 
+hash: 0000001445-37a8205773006142342047fce199c61998d30fe9a85f241bcc346742968fbce2
+[baby steps towards dojo 0.9
+attila.lendvai@gmail.com**20071026190751] 
+hash: 0000000455-80956856083194618e9164a06afec2c2aef2dd9b3d9d336b6131d35833d19d2e
+[drop araneida and aserve backends
+attila.lendvai@gmail.com**20071026190855] 
+hash: 0000000858-6e1732bfadf3209c5aad40fffa3a9d932ae6116958cc696ef0c6ab59e8bb14d2
+[drop aserve and araneida backends
+attila.lendvai@gmail.com**20071026191818] 
+hash: 0000031093-04ad951f0d4d100e6d80626a9509b0f73844b1f6ddeccf41ad345a9b3b0ec20f
+[drop single threaded httpd backend
+attila.lendvai@gmail.com**20071026193910] 
+hash: 0000024041-806e60a5dc7b445835c34ee14ca5d1c3a53f5d37fe3a8f60b988841af25a212e
+[fix define-js-resources C-cC-c'ing
+attila.lendvai@gmail.com**20071027000315] 
+hash: 0000000400-920a0a46168cb1f95464319b78b797761173e3c30cbdebeb9edd8592acc9968e
+[use cl-def's with-macro for the with-*-lock-held macros to leave a function on the stack for easier debugging
+attila.lendvai@gmail.com**20071027142715] 
+hash: 0000002843-88c454626746eead1c9981746ab39b476f93e93b3007096846a50f32bd63fe8e
+[clear the request/response variables before trying to close the socket
+attila.lendvai@gmail.com**20071029140901] 
+hash: 0000000472-51c0493b93f5627b1fd848bf3ab3848035c4b27740a15d89781ec40b1a5248a7
+[added a serve-stream and implemented serve-file using it
+attila.lendvai@gmail.com**20071029221842] 
+hash: 0000006586-4f12ae6f837cdd0c337675fedc0857110b4270636377ac88c4329e9c2a66654a
+[renamed collapsible's "body" css class to "collapsible-body"
+attila.lendvai@gmail.com**20071029221941] 
+hash: 0000000491-f28675da8566d8a2edf051d6623c303531e809bf6f6bc75c6ea65e00e6eb977e
+[more usage of with-thread-name
+attila.lendvai@gmail.com**20071030163207] 
+hash: 0000005281-7d7b48c689d39a5984c9368fcd43d42cc192f5af4543d173619e415120d3bdb0
+[more fine-grained locking on the app/sessions when removing expired sessions
+attila.lendvai@gmail.com**20071030192337] 
+hash: 0000004594-085f6d5a991e3d17b102656db96ef3d78ae83c95a31c1d7aa5d833573581dc15
+[also log the thread name in when the backtrace is logged
+attila.lendvai@gmail.com**20071030192729] 
+hash: 0000000446-ecd3b707148491e99d6c3b494c184cf8db9ced2c9492146c8b48530bcab4f6ba
+[added clear-session-frame-history
+attila.lendvai@gmail.com**20071030200920] 
+hash: 0000000692-fded5c9e2a09ff6c6f6ce1be2c38f92aee2d3b0a0b2bf723822799ff85e5a785
+[added maybe-remove-expired-sessions
+attila.lendvai@gmail.com**20071030202921] 
+hash: 0000000728-60dc33cb6715551d6fc89a51f8b716286ae5a22639c1657f1730a67024c9e155
+[rework remove-expired-sessions a bit
+attila.lendvai@gmail.com**20071030211425] 
+hash: 0000001189-97506cf6a903a963d144ae23f677d875337817db9f30e0131bb4ebc1d0ce28b5
+[turn the assert-application-lock-held into a with-lock-held-on-application in delete-session
+attila.lendvai@gmail.com**20071031005222] 
+hash: 0000000660-546800f4f425b0c84fa02bd56b6558fbcc0c5a799a4ec9e0a480269a2dba5043
+[fix importing toplevel script nodes from ajax answers
+attila.lendvai@gmail.com**20071031013401] 
+hash: 0000000491-440d30c42336e94eeedb1b2b39822add404c47975021cb8d92237e4ef40a9873
+[housekeeping
+attila.lendvai@gmail.com**20071030163423] 
+hash: 0000001629-cd04fa39dcb754e029a3ee0f3b75973d0daad09951d0e60e7e3f106948fac593
+[turn the assert-application-lock-held into a with-lock-held-on-application in delete-session
+attila.lendvai@gmail.com*-20071031005222] 
+hash: 0000000660-13da5c9fafbd2e9143e2057c04f24ea6828c0021e602ddb1bd8e31fbfde0f136
+[invert the default value of call-as-response-handler
+attila.lendvai@gmail.com**20071031161408] 
+hash: 0000000976-c82ed631e75ec7e29d3bcdcc8ef5f4c5ddeb9f494194f5b8b6ef6a808806f8d1
+[refactor app/session locking and session expiration.
+attila.lendvai@gmail.com**20071031230717
+ 
+ TODO left: sessions are not purged, user code must call remove-expired-sessions periodically for now
+] 
+hash: 0000016089-3ca6e5b5cd35f609ea542bcd022835606c398e8f261464635f7cdb3f7a9502c1
+[rename httpd threads
+attila.lendvai@gmail.com**20071031231233] 
+hash: 0000000534-933c10184a14ae051a1d701c790ee3d2012ed309148749b0eddda62efe1e458f
+[housekeeping
+attila.lendvai@gmail.com**20071031231318] 
+hash: 0000002447-9885bb927cf0fa3f89d3fb006dbc76073f097c669689fc0ea36ed4ea72f02ae9
+[added log-ignorable-error-backtrace
+attila.lendvai@gmail.com**20071031231600] 
+hash: 0000000868-12006dd677adb308597bc19956585d0858c2802f50979d0674d55edd548e8bf1
+[more lock-held asserts
+attila.lendvai@gmail.com**20071031231609] 
+hash: 0000001250-a617e19378f7991edb37fc014c1965bab65d0abfe676b288ffbe6d0b20a8105b
+[added assert to find-session
+attila.lendvai@gmail.com**20071101034315] 
+hash: 0000000570-828d0ea8f6760c272cc449e5c8977b058936d0e401c79506222af2a52da74a14
+[more cl-def usage
+attila.lendvai@gmail.com**20071101122942] 
+hash: 0000004968-7b7c904b5ba0bff587b435d79abfec4c679160131857238c6a3327ecbec83d87
+[added bind dependency
+attila.lendvai@gmail.com**20071101123114] 
+hash: 0000000242-212b1aa96124e6da0b929b4f53c5c1b3d277a45b9274f7bae075db9d8ecd653f
+[added download-action-href-body
+attila.lendvai@gmail.com**20071101123136] 
+hash: 0000000644-142923c775afc7add88f9659e7dd13cc2db1c497cfac03610f7815e7363a04d0
+[added with-session-specific-temporary-file and open-session-specific-temporary-file
+attila.lendvai@gmail.com**20071101151614] 
+hash: 0000002597-831cf9d33cb52802c81f6b215c93d8022e4151a36cf3917e1576df30c7c3a6ff
+[prefix the various urls of window with the application's url-prefix
+attila.lendvai@gmail.com**20071102112232] 
+hash: 0000003853-d5e2c1666bd55f253f14ffbaea13791b68b9347616635607bb04c2426deca2fb
+[KLUDGE: do not read the request if the server is overloaded
+attila.lendvai@gmail.com**20071105093332] 
+hash: 0000000758-69bbbbcc5bf9afde5680e655c3fbd1adb9243c07c06a846492850f4c42fb394c
+[send a start message to the new acceptor
+attila.lendvai@gmail.com**20071105093338] 
+hash: 0000000283-5e335766f131a42f8cb552fbb4d20f9b6d0da41e1802598fcac6373925d13419
+[add with-thread-name to handle-action
+attila.lendvai@gmail.com**20071105123555] 
+hash: 0000000406-3f815c69ce929894bd524c43b8cd31d4233fcfca6c16922e1ce47b62e6863a52
+[change call-in-rendering-environment's arg order to follow the call-* conventions
+attila.lendvai@gmail.com**20071110145556] 
+hash: 0000001846-5e2ed6f33357231c725ffb9ac569b13a911e99f0e599ea4e075f20c65e99249d
+[Change make-new-session so that it calls make-instance with the :id initarg, so the name of the session's lock contains the session id.
+attila.lendvai@gmail.com**20071115211643] 
+hash: 0000000851-dcf8986a8e2dde2aa28e4580db31f885df7096825ddf4046ae22f70332e0531f
+[Fix logging the backtrace of errors of ajax actions
+attila.lendvai@gmail.com**20071115211841] 
+hash: 0000002778-ff624e65c4ce8884244332f6c12c3ea13e324c0a42567a02b9919b051bd7d389
+[fix: (lang::timestamp ... :relative-mode #f)
+attila.lendvai@gmail.com**20071214150456] 
+hash: 0000000937-d41da453cc6eb08deefb937466200a7fe2ea588497bc462bfd039fdb94540721
+[Add hidden-field html form field type.
+Sasha Kovar <sasha-lisp@arcocene.org>**20071228030046] 
+hash: 0000000677-629a5c48372848ff8b086d13374a78f6da21a14ef1b5fea28cf70fe4dc5368cd
+[Add maxlength attribute to in-field-string-field render method.
+Sasha Kovar <sasha-lisp@arcocene.org>**20071228024947] 
+hash: 0000000198-09735e74f2288a98e0bfa7eb0739684471ebf566ccd0617cf62cae2bc14cfde1
+[weak try to fix the bitrotten examples
+attila.lendvai@gmail.com**20080111064758] 
+hash: 0000000838-d96097bb69c6ff3ead48fc8d86c56be0e7c64d230d9b46ca562db44e780a3061
+[Update iolib backend startup code
+clinton@unknownlamer.org**20080130222426] 
+hash: 0000000666-f9c08085977698413893750302f8659f3afe211c436fd13873e01ab59fa34fd2
+[Make file upload root configurable
+clinton@unknownlamer.org**20080117023522] 
+hash: 0000000481-bff33b174d39abd43a81130696af789217c179b9c737b8e06697bcfc10658952
+[cleanup temp file handling, make sure no file is overridden
+attila.lendvai@gmail.com**20080123084343] 
+hash: 0000001669-bf10648d7369bd6459db5f743f41927dac86e899f1570ce56a156e510261f69d
+[follow iolib changes. patch by the man himself: Stelian Ionescu! :)
+attila.lendvai@gmail.com**20080202213406] 
+hash: 0000000636-f219dac3e5ab62e51dabff5471308b5375427c5b6f96322811d5993a1573f840
+[support :relative-mode in lang::timestamp<>
+attila.lendvai@gmail.com**20080204233729] 
+hash: 0000000400-9c96484bcdadf37473813b9bcf24a9d646c008c8b190e6af9034ed48e7adc624
+[fix cache purging of i18n-parenscript-dispatcher
+attila.lendvai@gmail.com**20080204234112] 
+hash: 0000001412-7f776b931135ba296bd62b3dd621a7b8e1afd1b0efa10d3fb51130df695bf13b
+[fix up ucw.lang:timestamp
+attila.lendvai@gmail.com**20080205233800] 
+hash: 0000006265-ba8f2f76ce03959b43898f1445a4e6c63bcba1969a18810ec539d44c92d57432
+[fix: added missing setup-readtable call to l10n.lisp
+attila.lendvai@gmail.com**20080207112636] 
+hash: 0000000218-ca28144530817f82caa4f0044e6336c4968715c124e001ac125f4b8c27a25995
+[lang:timestamp is not in relative-mode by default
+attila.lendvai@gmail.com**20080208125401] 
+hash: 0000000215-ff8916f185035ec3690109209549b68b86a9099b9535369bb8d142057d2c7459
+[fix corner case in lang:timestamp
+attila.lendvai@gmail.com**20080208125533] 
+hash: 0000000520-b1baaf9e24ad57a89cfb7aefc45a0e6236ff7c892809f4761dcbe0024823a57a
+[temp fix for ip-address= until iolib's infrastructure is used
+attila.lendvai@gmail.com**20080415155521] 
+hash: 0000000793-ac185e16c1fe50985b4062376a553726b95333132dd4ced42522ef9c008e9612
+[fix lang:timestamp
+attila.lendvai@gmail.com**20080415155606] 
+hash: 0000000326-717166e8b7f6c186fb53fa891a678615c2f805ec8b8db25481e7212554a5da95
+[follow bind's values -> :values changes
+attila.lendvai@gmail.com**20080415155617] 
+hash: 0000000759-aad03d3b0e80c15c0634bc7562bb48ea1a3098ef088e971374f04ad1eb316b7f
+[add safari support to import-ajax-received-xhtml-node
+Sasha Kovar <sasha-lisp@arcocene.org>**20080419055600] 
+hash: 0000000248-432a9beaf6eefd7474dec91ece3f6d3900fffd17429c27d6ed4509f0aab80f79
+[UCW-CORE fork part 1.
+drewc@tech.coop**20081103191746
+ 
+ This patch is the start of the ucw-core fork, done in parts to appease 
+ the darcs gods.
+] 
+hash: 0000053677-088b864f5b9f52add2bc78cc3947bf6b4de834b4f314377b83778a14ebab6e4c
+[Adding new files for ucw-core split.
+drewc@tech.coop**20081118211410] 
+hash: 0000024709-0486bc57021e44c3b830fde9c0c57bc6b51321d35147c157d237d9eb229641d3
+[Remove outdated files no longer relevant for ucw-core.
+drewc@tech.coop**20081118214724] 
+hash: 0013009877-4277273aca5aa1f7d9b5d251a1d4f0327c3247f7ce5fa7b469226022b0ecd62c
+[I forgot the .asd ... not the best start!
+drewc@tech.coop**20081118222013] 
+hash: 0000008492-7be831e72f4bacaf21063ac4eccc5887b8b1f1ed49642d5bfe0b4ed428989990
+[Fix invalid html and html escape arguments in send-redirect
+clinton@unknownlamer.org**20081124074610] 
+hash: 0000000342-7a9f383eb551416e033a27abbd408d53e4b31e82d980aca8f3a4b1ef5b39eb95
+[Properly call with format-rfc3339-timestring with destination argument
+clinton@unknownlamer.org**20081124214013] 
+hash: 0000000267-d841d2a7195b0ccc0a7ba79c4add7c1e0ef318a756cf56e9e56a52140a8a5b8b
+[Initial exports for ucw-standard package
+clinton@unknownlamer.org**20081124214126] 
+hash: 0000000873-94c6f0897be24cc2d51657d801c43175dfcf9a3c3edb91c230baeae3799c6027
+[Nickname ucw-standard package ucw
+clinton@unknownlamer.org**20081124214150] 
+hash: 0000000202-ecad06b00b6a7b2d93e14cb2b4547acc3db14c62c545b5d958267226cebbc3d6
+[Export CREATE-SERVER
+clinton@unknownlamer.org**20081126041608] 
+hash: 0000000115-756830e9756b90035cbe665cc385b778a6135a39e0fcefd8d6a79397cb3cde1e
+[Export REFRESH-COMPONENT
+clinton@unknownlamer.org**20081126041615] 
+hash: 0000000124-4f5c08ab30fd646c648f53a970cce84374975db4fde6c60501bef54262370086
+[Remove obsolete constants
+clinton@unknownlamer.org**20081126041632] 
+hash: 0000000765-ab2deb943abe362150e48e33fbead748c979a4e2928e5d3d3ef6f153ac601f83
+[Remove CALL-IN-RENDERING-ENVIRONMENT
+clinton@unknownlamer.org**20081126042008
+ This would be useful in a theoretical future ucw-ajax extension, but
+ is not useful for anything in the core or standard packages.
+] 
+hash: 0000000896-ac913744e8c140587e6bf9a15842fb355122a1c3c454db376028ad9a9ed526ae
+[Export MAKE-PLACE
+clinton@unknownlamer.org**20081126045512] 
+hash: 0000000231-6cc526e88f228fb86f578e1e8d8fab6348b3becf7a45dceb691abdf6109235ab
+[Update iolib backend for more modern net.sockets
+clinton@unknownlamer.org**20081126063127] 
+hash: 0000001376-c737360b1d3a1e8032eb4c7eab5bb6b7a47e694536a9f865a98802d145bf2ab7
+[Port regexp and simple dispatcher to ucw-standard
+clinton@unknownlamer.org**20081126202054
+ * Export matcher/handler/dispatcher protocol from ucw-core
+ * Remove ajax/parenscript/etc. dispatchers
+] 
+hash: 0000015595-9d857af43d78ec7b0463337a4f50a8b79e668ce20bfeb94173d23edcc8419738
+[Remove some obsolete exports from core-package
+clinton@unknownlamer.org**20081126202444] 
+hash: 0000000948-6f4005470f27dd4734ce999a0650a634980b4445f9154bb5470045c100038ea5
+[Port cookie-session-application-mixin to ucw-standard
+clinton@unknownlamer.org**20081126202737] 
+hash: 0000001771-8c664e5876647550803530783f09d7c0fe2794a9bad967b5ca3e712512741e23
+[Remove ajax-appliction-mixin
+clinton@unknownlamer.org**20081126202754] 
+hash: 0000013726-5185dc7b0adae924afbb8f6dc71f374eec125b942fdc96618e47d0a28e9999a7
+[Port html-element and widget-component to ucw-standard
+clinton@unknownlamer.org**20081126203441
+ * html-element -> html-element-mixin
+ * Prefixed accessors with `html-element.'
+ * widget[-inline]-component -> html-{block|inline}-element-mixin
+ * Add UNIQUE-DOM-KEY to generate dom-ids as a drop-in replacement for
+   js:gen-js-name-string
+] 
+hash: 0000009403-28ca92cb749015da7765b10c5e44ece5f52f796c248852548811d6055acae187
+[Remove obsolete call macros
+clinton@unknownlamer.org**20081202041601] 
+hash: 0000001995-b101352831fa22bbeaaac70736fbf24385262685d01ee9386774ad4bdfee796c
+[Move JUMP and CALL-AS-WINDOW into ucw-standard
+clinton@unknownlamer.org**20081202041645] 
+hash: 0000001031-b181e39b256d489bd69a2991772c5976398454575a16d644ba9d5636722fb5a9
+[Export http status codes from ucw-core
+clinton@unknownlamer.org**20081202064725] 
+hash: 0000001413-2c1628a242adc26a44f81dd815613d834f170110a5bd353906c604b82ff4746e
+[Clean up core package definition
+clinton@unknownlamer.org**20081202073148
+ * Duplicated symbols removed
+ * Symbols for things no longer in ucw-core removed
+ * Export list is now coherently sorted; some additional sorting would
+   be useful
+] 
+hash: 0000007140-db7f5adb0c4c9f98f31ecd97f832b2692703822d16727f41e037f0a05cf491ca
+[Reimplement starts-with-dispatcher
+clinton@unknownlamer.org**20081202090909
+ Uses ARNESI:STARTS-WITH to match a prefix; the suffix is available
+ within the dispatcher body as *DISPATCHER-URL-SUFFIX*
+] 
+hash: 0000001947-72e19b9320c4e0afe69647979ad7b4f26988253891c38100864d4854bd4e230d
+[Move SERVE-{SEQUENCE|STREAM|FILE} to ucw-standard
+clinton@unknownlamer.org**20081202091517
+ * Export more of the response protocol
+ * SERVE-FILE now returns a 404 page if the file does not exist
+] 
+hash: 0000016320-66f118c2004f55665c9f0d57d304facf0af3e6d706082ce081c0f5ebbb73c6ef
+[Import container classes into ucw-standard
+clinton@unknownlamer.org**20081202092252] 
+hash: 0000010378-38260b93df8392a715764af06450807fe4e15ec92a8a4c0c8ba00bf881542cf6
+[Move APPLICATION-WITH-WWW-ROOTS-MIXIN to ucw-standard
+clinton@unknownlamer.org**20081202095203
+ * Creates static file entry points at application init rather than
+   relying upon the backend to have special file serving handler code
+] 
+hash: 0000001854-f1723b4a54a8157616404a41a068ffdc10642dd066f37a905e9202f300efe8ee
+[Prepend url-prefix to window external stylesheets
+clinton@unknownlamer.org**20081202212435] 
+hash: 0000000228-031ad531bd0f19b5529a9a03a455f16493599dab379ad2185816231986767841
+[Ported basic secure-application-mixin
+clinton@unknownlamer.org**20081202235008
+ * ERROR-MESSAGE-WINDOW should probably be replaced by generic
+   info/error messaging component
+ * USER-LOGIN-WINDOW no longer checks if the provided credentials are
+   valid and instead returns (username . password) to the calling
+   component
+ * APPLICATION-AUTHENTICATE-USER checks credentials returned from the
+   login component. The default implementation does not provide the
+   ability to reattempt logins anymore.
+ * SECURE-APPLICATION-MIXIN should probably be split up into a
+   AUTHENTICATED-APPLICATION-MIXIN / SECURE- with a slightly more
+   general protocol to handle applications where logins are optional.
+] 
+hash: 0000012015-4ff3d33236e4e9bea86c0021efc730d2b161ad334d7ae416d0360d1f5d27a670
+[Register <ucw:input callback with :id
+clinton@unknownlamer.org**20081202235129] 
+hash: 0000000214-874f039858544a0ddb7b9ec86b2a3ac70c97b00a846fffcfec55384c15e72822
+[Added forgotten demo 
+drewc@tech.coop**20081127210055
+ 
+ This is the demo. It will eventually be a demonstration of all the ucw components, and also serve as the example code 
+ for documentation purposes.
+] 
+hash: 0000006116-56c8a7991d84500e85d7a3ac8c97afddcbf90f716c9db2d75ee4d19dfdeefbcd
+[Add demo fixes. preliminary manual, nuck some old unused files.
+drewc@tech.coop**20081203012326] 
+hash: 0000066747-be1b409d928c71eb2cde75729f7ebca8f1af66d57dc6151fd111e55df3dd9ebb
+[Tenatively import redirect-component for internal use
+clinton@unknownlamer.org**20081203093020
+ `secure-application-mixin' uses `redirect-component` in `exit-user'
+ after destroying the user session to throw the user back to the
+ current entry point in order to erase the current page. I tried
+ rewriting the call to `redirect-component' using `jump-to-component'
+ (window) and a few other things, but I couldn't make anything work. Is
+ there a cleaner way to do this?
+ 
+ As such I've imported `redirect-component' so that `exit-user' can
+ work, but have not exported it.
+] 
+hash: 0000001268-99fa31bbde8f651d285f7575cbfbea31bb580708c5d49b852ad1a4a971843ca3
+[Export window-body accessor
+clinton@unknownlamer.org**20081203093114
+ Perhaps it should be renamed `window-component.body' for consistency
+] 
+hash: 0000000271-74d305301876df932e9580b3effe2d91c2d45d7be4360b0e8f9a32f6c87098e1
+[Remove obsolete window-component exports from core package
+clinton@unknownlamer.org**20081203195628] 
+hash: 0000000217-cd68dd85fa2f164b64e0cb6ed291c95ebe026247b8fc06e7419919a1e0c44820
+[Remove a couple more obsolete files
+clinton@unknownlamer.org**20081205003517] 
+hash: 0000046553-6c940ae56112a8f221eeb139de28f91231b6e693a74e2d6a9607e1633f3d51ff
+[arnesi mopp -> closer-mop conversion
+clinton@unknownlamer.org**20081205003811
+ Arnesi's mopp is unmaintained and fails to work at least with current
+ Clozure CL. Rather than patch unmaintained code I converted ucw to the
+ rather nice Closer MOP.
+] 
+hash: 0000006497-017f75a61bbb626a2d40493988d47dc60763da3e5980fd66cddcc1f410966eea
+[Rename application-with-www-roots-mixin to static-roots-application-mixin
+clinton@unknownlamer.org**20081205204826
+ Renamed to be consistent with the other mixins
+] 
+hash: 0000001828-68e97540e49183c385b09fffde495f9b926c635ef8c618b4861a245c2a04775a
+[Export switch-component
+clinton@unknownlamer.org**20081206004306] 
+hash: 0000000138-23068caf383588cc05fa58a9c1b3f611b28735b8bbd7483d9852fbb2a693be75
+[Create tabbed-pane rendering protocol
+clinton@unknownlamer.org**20081206004408
+ `render-pane-options' and `render-pane-body' may be customized by
+ subclasses.
+] 
+hash: 0000001849-566b5392f4ab8943e0aa2d6ca9de0e6fdd51553f00125d1f8910836e40c7e5d1
+[Move standard-component :component -> :initform translation into defcomponent
+clinton@unknownlamer.org**20081206054915
+ Clozure CL does not have (setf slot-definition-initfunction) and the
+ initfunction for a component slot did not have access to its lexical
+ environment (granted, `defcomponent' is generally at the top level and
+ not using non toplevel bindings in :component (class ...) specs). The
+ expansion of the :initform for a :component CLASS or (CLASS
+ . INITARGS) is now done in `defcomponent'.
+ 
+ I am fairly certain that this behaves identically (with the exception
+ that INITARGS in :component (CLASS . INITARGS) can reference local
+ bindings).
+] 
+hash: 0000003224-0b3a952d0f444523c4d4e7f3417ca714bd9a883cb2e0de0c34cd9ad71c2b83fa
+[Export mime type functions from core and remove dependency on cl-mime
+clinton@unknownlamer.org**20081210054130] 
+hash: 0000000630-a06a642fd6341f5a05ae004e5e4fa4e72d63df7b0f19551c53b62729837a994e
+[Move html-block-element-mixin to tabbed-pane from switching-container
+clinton@unknownlamer.org**20081210062629
+ Extensions to switching-container should not be forced to be
+ html-block-elements.
+] 
+hash: 0000000779-966d7304e6e961a26a8e56eedba00e4cbbb114922ad8352fc8245199a3edcd8f
+[Remove explicit id attribute from standard tags
+clinton@unknownlamer.org**20081210093736
+ The id was generated at expansion time -- causing duplicate ids in the
+ resulting html when a tag was used in a loop or function called
+ multiple times.
+] 
+hash: 0000002259-e0d1050659c91d9420ec16f049df8c9d69e9c8053cf619215ede5f1f42597871
+[Change user-login form metho to POST to avoid putting user/pass into URL
+clinton@unknownlamer.org**20081211050141] 
+hash: 0000000191-824243a96440e641afbce72b91a6bfcf042c1454e16485f0d42887d223abe068
+[Port cached-component to ucw-standard
+clinton@unknownlamer.org**20081212213750
+ Improved the protocol and adjusted names to be more consistent. None
+ of these components are intended to be directly instantiated so they
+ are now labelled as mixin.
+] 
+hash: 0000006286-63231f8b5f0d1875984774ed56256e78e225dc6a4769ed1d67f6a3875b3be9b2
+[Check that cached output exists in `component-cache-invalid-p`
+clinton@unknownlamer.org**20090103200124] 
+hash: 0000000280-3d048d54045c33ddf58f0490bf7bb1278a7569e7e7f39d488189a35f001ab809
+[emo fixes and more manual.
+drewc@tech.coop**20081204044706] 
+hash: 0000019351-fdee4a15bcc6996157adb8f73f0de68c1373fe787ac9fc1db4d4a94ea067cb85
+[Changes for new manual .. and manual itself-ish
+drewc@tech.coop**20090102234551] 
+hash: 0000027372-7f4801e3f8650fbde93463338871828cf87113bdc3428a8b911eee7e5852b8d9
+[Adding example code
+drewc@tech.coop**20090102234730] 
+hash: 0000008944-a8a25d33506ff8e8e2b3e7f5e8544e2cf55e368f8eb174862c19a8d795210fe1
+[M-q FTW!
+drewc@tech.coop**20090103194106] 
+hash: 0000041359-98a5c050a414ad5164647166d9c81991e31316c5d0d8e43f8e527dc817f49550
+[Remove url-prefix from icons/styles/scripts in standard-window
+clinton@unknownlamer.org**20090103201635
+ There is no point -- relative URLs work fine when needed
+] 
+hash: 0000004577-d1d9e90cd8a6db2291c450d89cc350e8c4bd7d173b16f4a301bca3f29a8caacf
+[Updates to iolib backend for latest iolib
+clinton@unknownlamer.org**20090208230306
+ net.sockets -> iolib.sockets
+ io.streams  -> iolib.streams
+] 
+hash: 0000001983-b044409b585f134ec52a767c070fa5703f9c2f6dced321d04ebfd03b93b07b4c
+[ * CCL Fixes I
+clinton@unknownlamer.org**20090209033623
+  - Intern generated request-context and session classes in a specific
+    package rather than in the package of whatever backend is in
+    use. 
+  - Use MOP `ensure-class' rather than (make-instance 'standard-class
+    ...) to generate the request-context and session classes
+ 
+ With this UCW loads and can start an application on CCL 1.2 (at least
+ on x86-64), but it barfs as soon as the first /cc function is called
+ as CCL lacks funcallable instances. Off to hack arnesi into submission
+ now...
+] 
+hash: 0000001769-6c171a2eaafe81ccd3559e846366d39c93ea640cd0c1e89a641d25f71ddea0b8
+[Fix mod-lisp package
+clinton@unknownlamer.org**20090213175443
+ Thanks to ``Erik on #ucw for pointing this out
+] 
+hash: 0000000208-f3818336a9376ac2997d81e579ade1b8b5c04d628af95fc8da48c2082516b987
+[Remove unused <ucw::%select-action
+clinton@unknownlamer.org**20090215225158
+ Ignore-this: f39dc739533ac36becdae432d21c1f33
+] 
+hash: 0000001680-44f097bec95c109f5307d1abb8dc5b3b8f25550a899d457da954b92fd07dc9b7
+[Clean up :name/:id use in standard tags
+clinton@unknownlamer.org**20090215230431
+ Ignore-this: f136f9b4cdae64dcf14ab3c1ea14be35
+ * All <ucw: tags (excepting `option') will pass through :name as the
+   callback id if given one; otherwise the name generated by
+   `register-callback' will be used.
+ * Removed all references to the DOM :id; :id was needed in the tag
+   macros in ucw_ajax for some of the generated parenscript, but
+   now that there is no parenscript there is no need for this.
+] 
+hash: 0000002107-b0b2b4c09aa2a35b371b3d2198cc8eb33c01fe6c62eac0c0fea2ee675ce540de
+[Import `task-component' into ucw-standard
+clinton@unknownlamer.org**20090216054024
+ Ignore-this: f0d269b1e8230eecb3ef3a4a480371b7
+] 
+hash: 0000000701-c4b0335ae12649a5def3b283e60be7adcfd73ad67c43088bfdaf782c3f31be10
+[Move loggers into their own package
+clinton@unknownlamer.org**20090217201730
+ Ignore-this: 37923bab6890ad11c005eed75d130ca6
+ This will allow ucw-standard to ucw them as well
+] 
+hash: 0000002860-2289153f71d4b141fe7b94aca18649a52c72d525a371df0188f2b05cc6e3490b
+[Reenable logging in ucw-standard
+clinton@unknownlamer.org**20090217202504
+ Ignore-this: c5313b8fe1d9f47ea2ae2fb2c8c19f7f
+] 
+hash: 0000001763-2d2751d45372ffc2f9e7d65feb97e88b75f68647888fcfc6a853c48753eb7113
+[Move :component processing into ensure-class-using-class
+clinton@unknownlamer.org**20090404155232
+ Ignore-this: e0e52ba9556f39aca4e37f725ad9860e
+ This should fix defclass with `:metaclass standard-component-class'
+] 
+hash: 0000001924-758783aa27d131951f919f55bdfb212e08b0386cfb50211a9f1e4e7dc23f2a86
+[Fix ensure-class-using-class STANDARD-COMPONENT-CLASS
+clinton@unknownlamer.org**20090417184541
+ Ignore-this: 4bd2abaea6dcc21d95b902058693f7d1
+ Oops, the :initfunction/:initform were *not* being initialized
+ properly. Explicitly supply an :initfunction and remove :direct-slots
+ from the keyword list.
+] 
+hash: 0000001636-e981db5c8bea8bef4ded069ef58be373dc80b85f79efc565cb6e93b9b8c010cb
+[Port TAL support into ucw-standard
+clinton@unknownlamer.org**20090428043618
+ Ignore-this: 776b3414b62e07380c4bb7c9f7f8e118
+ * Tag definitions are half taken from _ajax and half taken from _dev
+ * `tal-application-mixin' replaces `application-with-tal-support'
+] 
+hash: 0000006220-1735b16a17d45336dc2b47c1c26c55d2164c44147f81947d1ca5fa427780d190
+[Add `ucw:action-object' tal attribute
+clinton@unknownlamer.org**20090428200233
+ Ignore-this: 7b937eb5e661e385b0ab6de16cf3a5e8
+ Expands to (TAG :action* ...) (-object is used in the name since
+ `action*' is in invalid name in XML it seems).
+] 
+hash: 0000000883-43bb7b1566f0c45593a0335fb8691eb2e011b733cbb86da7cda45f1f1eacdeec
+[Finally fix :component slot processing (probably)
+clinton@unknownlamer.org**20090429035809
+ Ignore-this: 5fb97f48822673582a21bfe8ba07b13a
+ It appears to `ensure-class-using-class' is not re-called with the
+ newly constructed class metaobject after initially constructing the
+ instance (via `ensure-class-using-class null ...'). I can't tell from
+ reading the MOP spec whether this is allowed or not (it seems to make
+ customizing `ensure-class-using-class' more or less pointless), and so
+ for now I've moved the :direct-slot fixup code into
+ `initialize-instance'/`reinitialize-instance'.
+ 
+ This necessitated restructuring the :direct-superclasses magic.
+ 
+ This still needs to be tested on ccl but *should* work.
+] 
+hash: 0000004635-a24ac9ef1d19ea64a158c3dd0e1cd332bedbba6ea4d1189a4b5af9b2a4dcd387
+[Rename `template-component' to `tal-component'
+clinton@unknownlamer.org**20090429162747
+ Ignore-this: 8bdbedfa43a81ad01dfdf0fada6da0be
+ And actually add the component source (oops)
+ 
+ <unknown_lamer> drewc: do you think I should rename template-component
+                 tal-component or something (as it is *not* a generic
+                 templating component but only supports tal templates
+                 and all)
+ <drewc> unknown_lamer: yes!
+] 
+hash: 0000004195-1ca1e7e211991a6ac9ab1cff355a9118c8ff4514243575c4952e3d221a3896ae
+[Fix mod-lisp backend
+clinton@unknownlamer.org**20090502205527
+ Ignore-this: 2a6b272ca36ff5ffdd9a43f73394609e
+ Use iolib to parse the remote address into a vector as expected by the
+ code in handlers.lisp
+] 
+hash: 0000000575-cb7974fb3524eba95a44f077ee6a9a893382e74b3988199a52fdaaa0f04cd98a
+[Compile :component (CLASS &rest initargs) initfunction
+clinton@unknownlamer.org**20090503212309
+ Ignore-this: e818a526ea23ee27e9050a49e32210e6
+ ikki noticed that
+ 
+   :component (switching-container
+               :current-component-key 'example-welcome
+               :contents
+               `((example-welcome . ,(make-instance 'example-welcome))))
+ 
+ did not work; this was because make-instance was being applied to the
+ unexpanded component-spec expression. Compiling a lambda expression
+ containing the component-spec expression gives the desired behavior,
+ but I'm not /entirely/ certain that using compile here does not count
+ as black magic (it seems to be reasonable to call when generating an
+ initfunction, but perhaps there is a better solution).
+] 
+hash: 0000001233-c26b9ea6997d53acd5f27237c67b5a8fee0883b9d7e15e717fa378951d2b993a
+[Fix: export new TAL component names
+clinton@unknownlamer.org**20090503212352
+ Ignore-this: ec37e8953051b45681dc4da53f4ce8d0
+ Oops, missed this in the template->tal rename commit
+] 
+hash: 0000000608-e6d89cfffc32e79730165853b1ba631578655e329cce408166f7a839a7a46ae4
+[Fix application-mixins component dependencies
+clinton@unknownlamer.org**20090504200458
+ Ignore-this: 46c08d98a4e7bc9dd7249905a56b9fcf
+ `static-roots-application-mixin' defines entry points and so needs
+ standard-dispatchers.
+] 
+hash: 0000000400-50c911ff008bfeda516efbcc1b77f59f46d1e67da3586881670d5f43a3edda51
+[Cleanup `static-roots-application' entry point implementation
+clinton@unknownlamer.org**20090504200608
+ Ignore-this: 9119fe7e437910a61ae84b72918f9c11
+ Uses `merge-pathnames' instead of string concatenation and disables
+ call/cc potentially resulting in a bit of a performance increase.
+] 
+hash: 0000000790-10d79b9631b51da3923c00c8ae8d6bc39e2e6c9c965cfb21ca86022d727b1d48
+[Further tweak static-roots entry points
+clinton@unknownlamer.org**20090505175144
+ Ignore-this: 2fbfd208d7cf5c0f66947b364e9cf302
+ Explicitly disable callbacks, render, and creation of a new frame.
+] 
+hash: 0000000453-b44dd5533023a71caa9bf880eef93a2d6ea2bacc6ca21560ce69440e450c9c85
+[mod-lisp backend: send cookies
+clinton@unknownlamer.org**20090505180225
+ Ignore-this: 90422bcd0c980e5ce17d50ad2dc2c386
+ puchacz noticed that cookies were not being set when using
+ mod-lisp. For whatever reason they were not being sent in
+ `mod-lisp-send-headers'.
+] 
+hash: 0000000538-6beb6ae4303ea7eb5703e3755589fd249cd6728f0c8c9030e4ccf2cc61db9d3d
+[remove magic from handle-action for ACTION
+drewc@tech.coop**20090505235442
+ 
+ Add an :around for BASIC-ACTION that takes care of it, so ACTION can be used for REST style entry points
+] 
+hash: 0000000954-72cf09268107a940b01b5f08ce0107169b5bfef2e9462f737c59c8a928bccc24
+[Use `action' rather than `basic-action' in static file entry points
+clinton@unknownlamer.org**20090506003815
+ Ignore-this: f6c9f6bfea4769c9672574b982fcbbfb
+] 
+hash: 0000000488-b207abf8361628deaf87707a2c8f7eb33df4f76229288a4b1801b4b8ce44136f
+[Minor: remove a couple of obsolete unexported functions
+clinton@unknownlamer.org**20090506052614
+ Ignore-this: 5edcf93e74eefb74e1266d6b38190470
+] 
+hash: 0000000625-fb95a95c7709dccd51680fcaab60a0eba5012169c4acb2be89597b90969fb7a2
+[Fix bug in expansion of `with-request-params'
+clinton@unknownlamer.org**20090506054210
+ Ignore-this: 4cbba545ee120291db6bc0640d0ca944
+ REQUEST was not being used; instead a literal `(context.request
+ *context*)' was unconditionally inserted.
+] 
+hash: 0000000477-15cba7e17f695503407ea137157485c830c08c8c4d237a0cb5ddd4a3ee6fb660
+[Move proper defintion of `ucw-core:make-action' into ucw-core
+clinton@unknownlamer.org**20090506194052
+ Ignore-this: abbb3a9c4d7ff9a6addf4f3b5c3cbcff
+ * Use ucw-standard definition and move *default-action-class* into
+   ucw-core with a new default of 'basic-action
+ * Rebind ucw-core:*default-action-class* to
+   'ucw-standard:standard-action in an :around method on
+   `standard-application's `service'
+ * Export *default-action-class* and `action' from ucw-core packagec
+] 
+hash: 0000001465-27161089d1c58f16887c61ef3517d0cb979f6021ae414f39aea25dad27e0f1ba
+[Export `with-request-params'
+clinton@unknownlamer.org**20090506194125
+ Ignore-this: 66c5892482ba862b7e284cf6626af404
+ This macro is occasionally useful in lower level dispatching code
+ written externally.
+] 
+hash: 0000000265-61d26ebb17bef2650c1446124a141d3b67b91dc2f419f73f32390ca7c49becde
+[Minor decruft
+clinton@unknownlamer.org**20090506194354
+ Ignore-this: d5ca0bcdcd7e8012007fa0177d0f1647
+ * A few whitespace fixes
+ * Fixup a couple of docstrings
+ * Remove unusued special
+] 
+hash: 0000000736-3a7f015ce04fa64a24bf1135d73a2b32c2e80238bdc5622131d548dc1b0389b6
+[Don't set action options by default in `defentry-point'
+clinton@unknownlamer.org**20090506194638
+ Ignore-this: ee79401c2ec24fbfcd93bcafda400d29
+ Let `make-action' handle class defaulting. This has the same behavior
+ of defaulting to `basic-action' for entry points unless the global
+ value of *default-action-class* has been rebound.
+] 
+hash: 0000000502-714205a221120b7d83a5c04cbfebf7c0723fa34f99b90fabd78493a0e0214353
+[minor updates to manual
+drewc@tech.coop**20090506234426] 
+hash: 0000000574-9b91bc1c66e850fba4cde5ca14d2fd0f7bce5abe9867a4fa41f7b394b7075f3b
+[check if headers are sent before sending them again.
+drewc@tech.coop**20090506234643] 
+hash: 0000000228-058ca25afe72a6dd40332a8be35de3cb00769d58b7d9d59c069a2cd0fa70bed3
+[remove expired sessions before signalling out-of-session error 
+drewc@tech.coop**20090506234727] 
+hash: 0000000338-9545f55ea1357e9c726e1fc682582501ce81653b00b7e36187483bd9cae6e567
+[add ,@others to ucw:submit
+drewc@tech.coop**20090513191641] 
+hash: 0000000169-987db76868db2a6b59f07864418fffc830fe26b2ba5509ea84eae27c8dd696de
+[Make action class a part of the application
+drewc@tech.coop**20090618215250] 
+hash: 0000003676-17467d0205fc84213baed344880fcdb93dc1a6e092e0890d88d995e349f764bd
+[change FRAME-SOURCE-LOCATION-FOR-EMACS to FRAME-SOURCE-LOCATION to keep up with slime changes upstream
+drewc@tech.coop**20090720165548] 
+hash: 0000000371-7f4900a8103c5eae1dc911e94e5b9d5181ed288c73679b72f1877d90a88d02ac
+[move manual/ to doc/ in preparation for ... something.
+drewc@tech.coop**20090722004028] 
+hash: 0000000478-46d21cd726300e46e88346393446c4ecdd942b4031c15d8ce59b5299864da890
+[Re-add isolated actions
+drewc@tech.coop**20090806175556] 
+hash: 0000005800-bddacfb781bf5412ee0031f70f0e8a97cd2584d647b02ea06eef6aad31ae7ed9
+[Add an special when a form is being rendered.
+drewc@tech.coop**20090813174419] 
+hash: 0000001196-2a90dd35b8318988f56b3e1a6dbe73cb7fe03b0c5474ee23cdce7a6848cbb665
+[Port `range-view' from ucw_ajax as `paged-list'
+clinton@unknownlamer.org**20090814192920
+ Ignore-this: 5f3e5f16cf47ed49747a6548004b4429
+ * Same interface but s/range/paged/ to better reflect its actual use.
+ * Fixed bug when :page-size is not passed as an initarg
+] 
+hash: 0000006931-00d79c25b68f0930c75e90098e4cd653fb4de13c3984d88630a9c52cc369a119
+[Add `paged-list.page-count' method
+clinton@unknownlamer.org**20090814193329
+ Ignore-this: dfee7b5c1997b901f4fa23a53a6cece1
+] 
+hash: 0000000354-a286740137888d8b17e63117feed0f2dafe8d774af5ab507ab6eecd03d97274b
+[Actually add paged-list to ucw.asd
+clinton@unknownlamer.org**20090814203638
+ Ignore-this: 95018da2a10cbdc9029f2e5c1c63750f
+ Oops, missed this.
+] 
+hash: 0000000190-33095d7740b8a09a03c8c020430daddcdfb0c5e3f48895b08e6412738534e11e
+[Remove MOPP in favor of C2MOP in example code
+clinton@unknownlamer.org**20090910234801
+ Ignore-this: 13cc0a94ba1ef73f157c06561851136c
+ The rest of UCW has been de-MOPP-ified so...
+] 
+hash: 0000000584-4a81b21970de3dde39a500bab938dd3a672e7b8c24c279a73cdd801a430960cb
+[Push ancient patch to make REDIRECT-COMPONENT work anywhere
+clinton@unknownlamer.org**20090910234942
+ Ignore-this: c7c3084c75d5d39c14b4062a3fdf891c
+ Just clears anything in the response already
+] 
+hash: 0000000631-a785887b4afbc352bbc69f55b41e62d48e77fe50a732ac501c912e1e56344122
+[Remove :ucw.examples to :ucw.manual-examples
+clinton@unknownlamer.org**20090911000306
+ Ignore-this: b8b841b368d22d5fa1f3df8adc109a55
+ Mostly because I don't see a good way to unify the example code I am
+ reimporting now and that.
+] 
+hash: 0000000311-40a83edd7b4f0b4aef8474c83a219a01e4258cc3083a657f846ba3e0311fc120
+[Port `option-dialog' from ucw_ajax
+clinton@unknownlamer.org**20090911022639
+ Ignore-this: 1d2aa8c1cbea6a5245f2f6b08e99682a
+ * Does not require TAL (but defines a TAL Env so it can be used with a
+   template)
+ * Added default render method
+] 
+hash: 0000001612-69c40d1d16d6e8e38b48f7ed2fb0e366ec9176245d17a1afc4d004eb79dd3a8a
+[Initial port of ucw_{dev,ajax} examples
+clinton@unknownlamer.org**20090911022820
+ Ignore-this: 8a13a3f48f2af36df3d5db89c62ea65e
+ Minimal, but working. Multiplication tables and counter examples have
+ been ported, more pending.
+] 
+hash: 0000016623-8979e2fc70f072ab15363b5bd91c61ee51d3caeb9d13e18144580fd40673d93e
+[Readd sum example
+clinton@unknownlamer.org**20090911024555
+ Ignore-this: 8ffe82bf160c991c8f3ae84c9ac1a3bc
+ I decided against reimporting the INFO-MESSAGE class because it is
+ more or less just an OPTION-DIALOG but with one option. I am not sure
+ it is /clean/ to do something like have a root DIALOG class with
+ MESSAGE-DIALOG, INFO-DIALOG, and OPTION-DIALOG subclasses; essentially
+ they can all be represented as OPTION-DIALOGs. Perhaps some
+ convenience functions are in order?
+] 
+hash: 0000004308-e2dbb65a3b1aae026f19879c6ec7534113fe9fccaf51ea303e48fd1246da65af
+[Fix `<ucw:textarea' wart
+clinton@unknownlamer.org**20090911035006
+ Ignore-this: d546f901a6fd2eb5d5009cb51592e945
+ In ucw_{dev,ajax} `<ucw:textarea' used the value of the :reader if
+ available (ignoring any body statements). Now only the body is
+ embedded. I've cchanged this to use the body when provided, the
+ :reader if provided, or nothing if nothing is provided. 
+ 
+ NOTE: I am unsure if it even makes sense to use the body in a
+ `<ucw:textarea' really, but need to check with drewc first.
+] 
+hash: 0000000869-e97ef55ba14162a52199a1785163ab5f8c685eaf047b72bb2fe56e0fdaa81cf6
+[Port wiki tutorial to ucw-core
+clinton@unknownlamer.org**20090911040301
+ Ignore-this: b7df2a3cf66a5f1db82ba5cfddeab814
+ The actual tutorial text needs a tad bit of cleaning up and I think
+ that the traditional style version is a bit broken, but, hey, 3/4 of
+ the way there is better than 0/4 of the way there.
+] 
+hash: 0000022550-aaf967cf3cf7ef3e1aa23746de9297e872a9c9c57e6545c8b548ac9075e66e11
+[Fix b0rked standard-tags commit
+clinton@unknownlamer.org**20090911205055
+ Ignore-this: 8abf4bf92028f59ce31f63dc852d747b
+ woops, saving the file before recording helps
+] 
+hash: 0000000550-a5318b7ddf1124fdebedd8a4bb0cf05f28d4ad1a3b0abb93b0d239249e8be51a
+[Render page-name title in wiki-viewer
+clinton@unknownlamer.org**20090912010542
+ Ignore-this: 2c078d505c2853c468b0a0c9dcfd72fa
+ Otherwise it looks weird embedded in the example application
+] 
+hash: 0000000392-49a93da96c7e43a65999f757fc211c7e2eaa17e353d7eb86dfba01723468e2dd
+[Add a cancel button the wiki editor
+clinton@unknownlamer.org**20090912043456
+ Ignore-this: 3ee401d095e83d6af9b884bcfa2d3ceb
+ The wiki example still needs a bit of an overhaul to bring it up to
+ more modern UCW style (e.g. the actions all have a useless SELF
+ parameter for the old macro based call/answer).
+] 
+hash: 0000000521-db6d9734638f4d95399b46c157b4b5a015cd20afe77d50bee43fe34df363c90c
+[Add the ucw.css file and use it on  the examples
+erick@ikki.ws**20090920201527
+ Ignore-this: 7ec8209f816a8b29ba4b950372da213a
+] 
+hash: 0000002110-5a4b76a667204459c1bc12651f4ffb3b184e2ce5ccaa05f94613d137956148db
+[Initial (broken!) transactional session stuff
+clinton@unknownlamer.org**20090918070051
+ Ignore-this: e4969d193b7e12b694193066a86b9903
+ Sort of half works but not really
+] 
+hash: 0000006413-037ea84afb0b448265da09faee1aa67ac7ab2acb4da46ee52846a03f317f5f5c
+[Alter session frame creation protocol slightly
+clinton@unknownlamer.org**20090918085125
+ Ignore-this: c64d11a84437b159ac3b6b5ff4b6d336
+ * `session' now has a `session-frame-class' method to generate the
+   session frame class similar to how `application' uses
+   `session-class' for the session class
+ * Default to `standard-session-frame' for `basic-session'
+ * `make-next-frame' now accepts the session in which the frame is
+   being created as the first argument to allow using the generated
+   session frame class
+] 
+hash: 0000002956-ffe0dba8eec81795b418e003016da6d35dd6c364aade75d734efe1b487832647
+[Seemingly working frame based transaction support
+clinton@unknownlamer.org**20090918085507
+ Ignore-this: 85e3a9ff2e4fdc6aea366ce0aa3e4c33
+ * Cleaned up implementation using the new `session-frame-class' method
+ * Made `open-transaction' and `close-transaction' wrappers that use
+   the current session (calling generics internally)
+ 
+ This seems to work, but I have only lightly tested this and so there
+ may be subtle (or not so subtle) bugs hiding.
+] 
+hash: 0000005542-72062d34e5f17bd348ff9c1d0c596988c192ddd2ead9134612da3642dd9ea8ce
+[Remove stray debugging cruft
+clinton@unknownlamer.org**20090918085714
+ Ignore-this: 4d56dbb2335f368fe3d6a19ee0e604ae
+] 
+hash: 0000000343-dd660745db9275eec3183de15fff568ba565c2a04220fa1c5841ea163b58bde1
+[Set :element-type of the server socket in httpd server
+clinton@unknownlamer.org**20091112003842
+ Ignore-this: 696023e22d36d8f8f4c405a3acf02479
+ This looks like a silent bug only triggered on newer CCL releases
+] 
+hash: 0000000396-4214a3bb762aa3293c76c3541e7e7515d27177a3a8e583edf2b41cb60a8705c4
+[Potential fix for httpd backend on CCL 1.4
+clinton@unknownlamer.org**20091112014107
+ Ignore-this: 5c7be5fe5e884050271ac6fb27db9ab9
+ Explicitly coerce usocket peer address to ip-{v4,v6}-address
+ 
+ (Untested since I don't have a working CCL 1.4 locally)
+] 
+hash: 0000000525-e727c0a5b21648df4526e9895030f5c90c757be9f57e101fa1c050f4f2b486b6
+[Fix demo application
+clinton@unknownlamer.org**20100514033949
+ Ignore-this: e08d74fffba25a619958d5d09915b037
+ * basic-application -> standard-application
+ * Spotted by burban@opopop.net
+] 
+hash: 0000000312-7820e4482a873109db285b2590d93a952cd4b2ea753f988eb59a4eb2a10b8995
+[Fix binding bug in nested component initialization
+Daniel White <daniel@whitehouse.id.au>**20100527232312
+ Ignore-this: ae57e60e05ed7c49753cc5d34ea39637
+ 
+ The reason for this is that the MAKE-PLACE macro expands into a
+ closure when we're creating a place for each nested component.  Since
+ each iteration does not create a new binding, then all the created
+ places refer to the last nested component.
+] 
+hash: 0000000766-9ab0bccdaeb875dae743e409b0a5021d7b16046ba429d1e3510737f5189ba4e3
+[Use the provided value for session in WITH-LOCK-HELD-ON-SESSION
+Daniel White <daniel@whitehouse.id.au>**20090923011904
+ Ignore-this: 3e936a3bb0278c31062bedfbc0bcd08b
+] 
+hash: 0000000938-87e68bb3ee8aa6249958801db6ad424ab67536955f4d7830a2869c73a2297cda
+[Assert that a WRITER or ACCESSOR has been provided to UCW callback tags
+Daniel White <daniel@whitehouse.id.au>**20091006231404
+ Ignore-this: 4eb164765216acd126dbccded3427c7
+] 
+hash: 0000004490-691feb9459bb483fa9ab1371fbe45ae725b14b84ca0b21984fb54614bec0f83a
+[Resolve conflicts in standard-tags and restore :reader behavior in textarea
+clinton@unknownlamer.org**20100625180415
+ Ignore-this: fa5b8a0d74cd7a887e201268fb2fb61c
+ * When :reader is provided but a body is not, use that value as the body
+] 
+hash: 0000000851-f1f65f90ea231ecbd0af628f2732304b6a464b1c99d171c66bbfe8dcc14cae1e
+[Make <ucw:select consistent with other tags (INCOMPATIBLE CHANGE)
+clinton@unknownlamer.org**20100625181653
+ Ignore-this: dbee878e0080b67bd22af6922d4637a3
+ * All other tags have :reader/:writer or :accessor whereas <ucw:select
+   used :accessor with an optional :writer
+ * <ucw:select now uses the same convention
+ * WARNING: old code using :accessor with :writer with be
+   broken. Fixing is straightforward at least.
+] 
+hash: 0000002256-7d027906eaf906183ee54544e90954ab54ae3eff075256e210c2223bddc2f6cb
+[Update <ucw:select docstring
+clinton@unknownlamer.org**20100625181905
+ Ignore-this: 6083022b25e56fd281a5d6894aabd55b
+] 
+hash: 0000000583-147742d8def32e735ce7a856e052c505c16f1b49abf1b3a888a6f7bb5d083c84
+[Allow `<ucw:option' expansion outside of the lexical block of a `<ucw:select'
+clinton@unknownlamer.org**20100828210513
+ Ignore-this: ca00d9d37d2be20e195784d2f9db5d06
+ * Bind %select-FOO variables as specials rather than lexical variables
+ * Keep %select-table lexical for capture by the writer
+] 
+hash: 0000004390-7a47838c27bcae77a6feda97edb31a9a0d6ad45fa3155618696cb847c9001124
+[Fix macroexpansion of `abort-raw-request'
+clinton@unknownlamer.org**20100901021436
+ Ignore-this: 6f3dc88c9a71e6db7b1546ae7bd1512e
+ * Was attempting to call `ucw.rerl.actions.debug' from within expansion
+ * Was not throwing 'abort-raw-request and thus `handle-raw-request'
+   was either not actually returning NIL on failure, or only did so
+   incidentally
+] 
+hash: 0000000591-88d1baaea568f7fcd582ac9467ffb3ef5f0492b2f79355b98d354b3dad7f1604
+[use closer-common-lisp package where appropriate
+drewc@tech.coop**20100901005138
+ Ignore-this: 6eb4a9166afc2fc7df58f94037a36e8f
+] 
+hash: 0000000310-ed04351cfb62874643216f9cb1228144bbfbba94b1e3bcff7e4727b9ab6be516
+[Changes the ucw.examples backend from :iolib to :htppd for lightening dependencies
+erick@ikki.ws**20100919013402
+ Ignore-this: bb53f928e3dcf283b8ee368891e5f97b
+] 
+hash: 0000000330-e00590ddfb76edcd1955ef46908d1654ab193acb626d95a81f4300bd2579f791
+[Adds :ucw.httpd to the :depends-on list of the ucw.examples system
+erick@ikki.ws**20100919013751
+ Ignore-this: 8f920c2853a18b9b663dae43e24168e2
+] 
+hash: 0000000223-a29adc53dfd49516dc89f879dfd57aee7d64bc37633d03e47f943367e128da42
+[Document `regexp-dispatcher' binding `*dispatcher-register*'
+clinton@unknownlamer.org**20101204183044
+ Ignore-this: bc101e52c83f98fb8ed1503e914d2a50
+] 
+hash: 0000000484-fd4ee89c064047273d3b7794102c0f15cd35393803b3901f3abd0f81d16ce7c8
+[Export *REQUEST-CONTENT-LENGTH-LIMIT*
+clinton@unknownlamer.org**20101213200119
+ Ignore-this: edc5acdca2bd76e80bfeb6d06ee359ee
+] 
+hash: 0000000195-d8079070645ea20c49ea9cf1011a913d816ae88001e6c2f379a2e47be06a2100
+[Forgot the earmuffs
+clinton@unknownlamer.org**20101213200540
+ Ignore-this: 273a176cf12b540745ef345cf6fe3a73
+] 
+hash: 0000000214-65f244e7bf7d79006659dfb6426405ff2499143c88e4ef930dfe4f0bbefe0c00
+[Pass `make-backend' arguments through to `make-instance'
+clinton@unknownlamer.org**20101213202657
+ Ignore-this: 61d7582551035efbe20716ca1f24d9f3
+ * Rather than handling :port and :host specially, this permits the
+   setting of all backend parameters.
+ * `make-backend' (by virtue of the generic having &allow-other-keys)
+   silently dropped any invalid keyword arguments before; now
+   `make-instance' will enforce valid initargs
+] 
+hash: 0000001796-ca1a6dc43fdf33d5409a3e67c525a94a3f3c6c53239019fc113acc99f2dfbc67
+[Add default initforms for basic-backend
+clinton@unknownlamer.org**20101219202509
+ Ignore-this: 33dc305b35c5f48084804aabe5ca228a
+ * `make-backend' before initialized these to nil if an argument was
+   not provided, and each backend sets a default for that instead of
+   checking for unbound... to avoid breaking things just set them to
+   NIL by defult
+] 
+hash: 0000000586-fbfca70d631e8eb6d0426d24a518a7af0239b0e7c7af10af3f1c85bfc11517d1
+[Move `window-component' back into ucw-core and fit `with-dummy-context'
+clinton@unknownlamer.org**20110109010513
+ Ignore-this: e22934cb770613f8493a374eb1512cba
+ * `window-component' is required for ucw-core in its current form to
+   operate
+ * `call-with-dummy-context' needed to lock the `dummy-application'
+    while creating a `dummy-session'
+] 
+hash: 0000003671-c74f60819b4dc26e6a5e35993863637b0ea7e98b1f2fa717c57904125a9505d7
+[Optional verbose backtrace printing for error lock
+clinton@unknownlamer.org**20110214212448
+ Ignore-this: 23d5b46ec0ce24eb5861971f082fea96
+ * Tenatively controlled by `ucw-core::*ucw-backtrace-verbose*'
+] 
+hash: 0000000864-ac284b767a1f8caf7364d26b14aa9c3f647d2a152a3e9509d5860c705274cb3f
+[Ignore errors when printing log backtrace
+clinton@unknownlamer.org**20110223011011
+ Ignore-this: 552f4340ff8e06775159c2ea19fbca7e
+ * Especially when printing frame local variables this appears to be
+   capable of triggering a recursive error and losing the original
+] 
+hash: 0000000400-b7a8efd72ceb7ab11c030071f7adf37c9504a8e21c101adaedd9539fbcea5f17
+[:ucw-ps system for :js script tag in UCW
+erick@ikki.ws**20120717204431
+ Ignore-this: c12f1162feb20acbca7f5a4adf57a116
+] 
+hash: 0000004320-70154d6f55a64246c88934192349dce812e7a626484d08b204cec8f87445d7a2
