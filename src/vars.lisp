@@ -4,7 +4,7 @@
 
 ;;;; * Global Configuration Variables
 
-(defvar *request-content-length-limit* #.(* 5 1024 1024)
+(defvar *request-content-length-limit* #.(* 50 1024 1024)
   "While uploading a file the size of the request may go higher then this in which case UCW signals an error.
 See also the REQUEST-CONTENT-LENGTH-LIMIT slot of BASIC-BACKEND.")
 
