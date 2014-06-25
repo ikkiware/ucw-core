@@ -8,7 +8,7 @@
 
 ;; TODO create two specials: *maximum-session-longevity* and *minimum-session-longevity*
 ;; TODO duplicate most of these as slots on applications taking the default from the var's
-(defvar *default-session-longevity* (* 60 30)
+(defvar *default-session-longevity* (* 60 50)
   "Seconds of inactivity allowed before a basic-session object is expired.")
 
 (defvar *default-session-purge-period* (* 60)
