@@ -19,6 +19,10 @@
   ((title :accessor window-component.title
           :initarg :title
           :initform nil)
+   (meta-op :accessor window-component.meta-op
+	    :initarg :meta-op
+	    :initform nil
+	    :documentation "A list of Facebook Open Graph Meta Tags")
    (stylesheet :accessor window-component.stylesheet
                :initarg :stylesheet
                :initform nil
@@ -84,6 +88,13 @@ window)."
       (<:title (if (functionp it)
 		   (funcall it window)
 		   (<:as-html it))))
+    ;; Here we generate meta tag with facebook open graph
+    ;; facebook need its meta tag to specify a thing that we want to share
+    (dolist (facebook-open-graph (window-component.meta-op window))
+      ;; the var facebook-open-graph is a list associative
+      (<:meta :property (car facebook-open-graph)
+	      :content (cdr facebook-open-graph)))
+    
     (awhen (window-component.icon window)
       (<:link :rel "icon"
 	      :type "image/x-icon"
@@ -127,7 +138,7 @@ window)."
   (:documentation "A convenience class for writing window components."))
 
 
-(defcomponent standard-window-component 
+ (defcomponent standard-window-component 
   (basic-window-component)
   ((body
     :initform nil
@@ -137,14 +148,23 @@ window)."
 
 (defmethod render-html-head ((window standard-window-component))
   (<:meta :http-equiv "Content-Type" :content (window-component.content-type window))
+  ;; Here we generate meta tag with facebook open graph
+  ;; facebook need its meta tag to specify a thing that we want to share
+  (dolist (facebook-open-graph (window-component.meta-op window))
+    ;; the var facebook-open-graph is a list associative
+    (<:meta :property (car facebook-open-graph)
+	    :content (cdr facebook-open-graph)))
+  
   (awhen (window-component.title window)
     (<:title (if (functionp it)
 		 (funcall it window)
 		 (<:as-html it))))
+  
   (awhen (window-component.icon window)
     (<:link :rel "icon"
 	    :type "image/x-icon"
 	    :href it))
+  
   (dolist (stylesheet (effective-window-stylesheets window))
     (<:link :rel "stylesheet"
 	    :href stylesheet
