@@ -23,6 +23,10 @@
 	    :initarg :meta-op
 	    :initform nil
 	    :documentation "A list of Facebook Open Graph Meta Tags")
+   (body-class :accessor window-component.class
+	       :initarg :class
+	       :initform nil
+	       :documentation "Class of body")
    (stylesheet :accessor window-component.stylesheet
                :initarg :stylesheet
                :initform nil
@@ -106,9 +110,15 @@ window)."
 
 (defgeneric render-html-body (window)
   (:method :around ((window basic-window-features-mixin))
-           (<:body
-            (render-window-scripts window)
-            (call-next-method))))
+    (cond
+      ((window-component.class window)
+       (<:body :class (window-component.class window)
+	       (render-window-scripts window)
+	       (call-next-method)))
+      (t
+       (<:body
+	(render-window-scripts window)
+	(call-next-method))))))
 
 (defgeneric render-window-scripts (window)
   (:method ((window basic-window-features-mixin))
