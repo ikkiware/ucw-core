@@ -51,7 +51,7 @@
                                   (last-modified (get-universal-time))
                                   content-type
                                   content-length
-                                  (content-disposition "attachment" content-disposition-p)
+                                  (content-disposition "inline" content-disposition-p )
                                   content-disposition-filename
                                   content-disposition-size
                                   (expires #.(* 24 60 60)))
