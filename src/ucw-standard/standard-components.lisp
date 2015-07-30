@@ -23,6 +23,10 @@
 	    :initarg :meta-op
 	    :initform nil
 	    :documentation "A list of Facebook Open Graph Meta Tags")
+   (meta :accessor window-component.meta
+	 :initarg :meta
+	 :initform nil
+	 :documentation "A list of meta tag")
    (body-class :accessor window-component.class
 	       :initarg :class
 	       :initform nil
@@ -98,6 +102,12 @@ window)."
       ;; the var facebook-open-graph is a list associative
       (<:meta :property (car facebook-open-graph)
 	      :content (cdr facebook-open-graph)))
+    ;;Here we generate the meta tag
+    (dolist (meta (window-component.meta window))
+      (case (car meta)
+	(:name
+	 (<:meta :name (nth 1 meta)
+		 :content (nth 3 meta)))))
     
     (awhen (window-component.icon window)
       (<:link :rel "icon"
@@ -164,6 +174,12 @@ window)."
     ;; the var facebook-open-graph is a list associative
     (<:meta :property (car facebook-open-graph)
 	    :content (cdr facebook-open-graph)))
+  ;;Here we generate the meta tag
+    (dolist (meta (window-component.meta window))
+      (case (car meta)
+	(:name
+	 (<:meta :name (nth 1 meta)
+		 :content (nth 3 meta)))))
   
   (awhen (window-component.title window)
     (<:title (if (functionp it)
