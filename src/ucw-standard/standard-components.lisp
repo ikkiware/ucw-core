@@ -40,16 +40,16 @@
          :initform nil
          :documentation "Optional URL for an icon.")
    (doctype :accessor window-component.doctype
-             :initarg :doctype
-             :initform (load-time-value +xhtml-transitional-doctype+)
-             :documentation "Doctype for this window.")
+	    :initarg :doctype
+	    :initform "html" 
+	    :documentation "Doctype for this window. We are going to use html5.")
    (content-prologue :accessor window-component.content-prologue
                      :initarg :content-prologue
                      :initform nil
                      :documentation "Unless nil it's printed <:as-is before any other output. Suitable for <?xml...?> lines.")
    (html-tag-attributes :accessor window-component.html-tag-attributes
                         :initarg :html-tag-attributes
-                        :initform (list "xmlns" #.+xhtml-namespace-uri+)
+                        :initform nil
                         :documentation "A yaclml attribute list that'll be rendered into the <:html tag's attributes.")
    (javascript :accessor window-component.javascript
                :initarg :javascript
