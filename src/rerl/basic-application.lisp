@@ -50,6 +50,10 @@
                  :request request
                  :response response
                  :application app))
+;;;; TODO move this method to statistics
+(defmethod count-sessions ((application application-with-session-handling-mixin))
+  "Counts the number of the session into the application"
+  (hash-table-count (application.session-table application)))
 
 (defmethod find-session ((application application-with-session-handling-mixin) (context request-context))
   "Returns the session with ID (find-session-id CONTEXT) in APPLICATION,
