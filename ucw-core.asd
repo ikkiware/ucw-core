@@ -147,7 +147,7 @@ Read Eval Render Loop (RERL)."
                 :components ((:file "common")
                              (:file "basic-backend" :depends-on ("common"))
                              (:file "iolib" :depends-on ("basic-backend" "common")))))
-  :depends-on (:ucw-core :rfc2388-binary :puri :iolib.sockets :cl-ppcre))
+  :depends-on (:ucw-core :rfc2388-binary :puri :iolib/sockets :cl-ppcre))
 
 (defsystem* :ucw-core.test
   :components ((:module :test
