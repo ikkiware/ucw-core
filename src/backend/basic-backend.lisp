@@ -152,6 +152,13 @@
                                       header-name))
                    (headers message))))
 
+(defmethod get-ip-of :around ((message basic-message))
+  (declare (optimize speed)
+           (inline localhost-ip-address-p ip-address-from-private-network-p))
+  
+  (let ((physical-remote-address (call-next-method)))
+    physical-remote-address))
+
 (defmethod remote-address :around ((message basic-message))
   (declare (optimize speed)
            (inline localhost-ip-address-p ip-address-from-private-network-p))

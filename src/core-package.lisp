@@ -284,6 +284,9 @@
    #:+http-service-unavailable+
    #:+http-gateway-time-out+
    #:+http-version-not-supported+
+
+   ;; utils
+   #:get-ip-of
 ))
 
 ;; package for automatically generated class names

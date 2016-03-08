@@ -636,6 +636,9 @@ client (though buffering issues may arise)."))
 (defgeneric remote-address (request)
   (:documentation "Return the remote ip address of a request."))
 
+(defgeneric get-ip-of (request)
+  (:documentation "Return the remote ip address of a request."))
+
 (defgeneric encoding (response)
   (:documentation "Return a symbol representing the desired encoding
 when writing strings into the network stream."))

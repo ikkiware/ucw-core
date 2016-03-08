@@ -72,6 +72,12 @@ of the available-workers for handling request."))
 (defmethod network-stream ((message httpd-message))
   (usocket:socket-stream (socket message)))
 
+(defmethod get-ip-of ((message httpd-message))
+  (or (ignore-errors 
+	(coerce (usocket:get-peer-address (socket message)) 'ip-v4-address))
+      (ignore-errors 
+	(coerce (usocket:get-peer-address (socket message)) 'ip-v6-address))))
+
 (defmethod remote-address ((message httpd-message))
   (or (ignore-errors 
 	(coerce (usocket:get-peer-address (socket message)) 'ip-v4-address))
