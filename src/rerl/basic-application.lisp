@@ -76,12 +76,13 @@ NIL if there is no session with that id."
   (ucw.rerl.application.dribble "Trying to make a new session.")
   (assert-application-lock-held application)
   (let ((session-table (application.session-table application)))
+    ;; first delete expired sessions
+    (remove-expired-sessions application)
+    ;; displays message to many sessions
     (when (> (hash-table-count session-table)
-             *maximum-number-of-sessions*)
-      (remove-expired-sessions application)
-      (when (> (hash-table-count session-table)
-	       *maximum-number-of-sessions*)
-	(error 'too-many-sessions)))
+	     *maximum-number-of-sessions*)
+      (error 'too-many-sessions))
+    ;; make new a session
     (let* ((session-id (new-random-key session-table +session-id-length+))
            ;; this way the initialize-instance of the session can set the session's lock name properly
            (new-session (make-instance (session-class-of application)
