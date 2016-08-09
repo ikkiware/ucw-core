@@ -224,6 +224,7 @@
    #:call-render
    #:handle-toplevel-condition
    #:send-standard-error-page
+   #:send-redirect
 
    ;; backtracking
    #:backtrack
