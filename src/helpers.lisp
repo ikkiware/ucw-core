@@ -31,8 +31,9 @@
     (until file)
     (finally (return (values file file-name)))))
 
-(defun new-random-key (hash-table key-length)
-  (iter (for key = (random-string key-length))
+(defun new-random-key (hash-table &optional key-length)
+  ;;(random-string  key-length))
+  (iter (for key = (random-string-plus))
         (for (values value foundp) = (gethash key hash-table))
         (while foundp)
         (finally (return key))))
