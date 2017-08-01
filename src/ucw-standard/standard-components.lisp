@@ -179,6 +179,9 @@ window)."
       (case (car meta)
 	(:name
 	 (<:meta :name (nth 1 meta)
+		 :content (nth 3 meta)))
+	(:http-equiv
+	 (<:meta :http-equiv (nth 1 meta)
 		 :content (nth 3 meta)))))
   
   (awhen (window-component.title window)
