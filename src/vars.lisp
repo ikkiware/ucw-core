@@ -73,7 +73,7 @@ instances or expressions evaluating to app instances.\)")
 
 (defvar *ucw-log-root-directory* nil) ; logging to files disabled by default
 
-(defvar *ucw-log-level* +info+
+(defvar *ucw-log-level* +warn+
   "This is the default runtime log level for the UCW loggers.")
 
 (defvar *ucw-compile-time-log-level* (if ucw.system:*load-as-production-p*
