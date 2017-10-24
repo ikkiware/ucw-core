@@ -24,12 +24,12 @@
 initially create and once the server is running how many are
 currently hanging around.")
    (maximum-worker-count
-    :initform 32
+    :initform 64
     :accessor maximum-worker-count-of
     :initarg :maximum-worker-count
     :documentation "The upper limit for the number of workers.")
    (request-timeout
-    :initform 90
+    :initform 60
     :accessor request-timeout-of
     :documentation "Drop requests that can't be served in this time (measured in seconds)."))
   (:documentation "Generic multithreaded backend.
