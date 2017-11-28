@@ -107,13 +107,13 @@ according to what the (encoding response) protocol answers."
       (write-sequence bytes (network-stream request)))))
 
 (defun serve-file (file-name &rest args &key
-                   (request (context.request *context*))
-                   (response (context.response *context*))
-                   (last-modified nil last-modified-supplied-p)
-                   (content-type nil content-type-p)
-                   (content-disposition-filename nil content-disposition-filename-p)
-                   content-disposition-size
-                   (expires #.(* 24 60 60)))
+					  (request (context.request *context*))
+					  (response (context.response *context*))
+					  (last-modified nil last-modified-supplied-p)
+					  (content-type nil content-type-p)
+					  (content-disposition-filename nil content-disposition-filename-p)
+					  content-disposition-size
+					  (expires #.(* 24 60 60)))
   ;; catch file does not exist and return 404 page
   (handler-case
       (with-input-from-file (file file-name :element-type 'unsigned-byte)
@@ -144,6 +144,7 @@ according to what the (encoding response) protocol answers."
 	       :content-disposition-size content-disposition-size
 	       :expires expires
 	       args))
+    (sb-int:simple-stream-error () nil)
     (file-error (err) (send-standard-error-page :condition err
 						:title "File Not Found"
 						:http-status-code +http-not-found+))))
