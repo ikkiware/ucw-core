@@ -63,7 +63,7 @@ Read Eval Render Loop (RERL)."
   :licence "BSD (sans advertising clause)"
   :version "0.9"
   :class ucw-system
-  :test-system :ucw-core.test
+  :test-system "ucw-core/test"
   :components
   ((:module :src
     :components ((:file "core-package")
@@ -126,22 +126,22 @@ Read Eval Render Loop (RERL)."
 
 ;; Backends
 
-(defsystem* :ucw.httpd
-  :components ((:module :src
+(defsystem* "ucw/httpd"
+  :components ((:module "src"
                 :pathname "src/backend/"
                 :components ((:file "common")
                              (:file "message-queue")
                              (:file "basic-backend" :depends-on ("common"))
                              (:file "httpd" :depends-on ("message-queue" "basic-backend" "common")))))
-  :depends-on (:ucw-core :rfc2388-binary :puri :cl-ppcre))
+  :depends-on ("ucw-core" "rfc2388-binary" "puri" "cl-ppcre"))
 
-(defsystem* :ucw.mod-lisp
+(defsystem* "ucw/mod-lisp"
   :components ((:module :src
                 :pathname "src/backend/"
                 :components ((:file "mod-lisp"))))
-  :depends-on (:ucw-core :ucw.httpd :iolib.sockets))
+  :depends-on (:ucw-core :ucw/httpd :iolib.sockets))
 
-(defsystem* :ucw.iolib
+(defsystem* "ucw/iolib"
   :components ((:module :src
                 :pathname "src/backend/"
                 :components ((:file "common")
@@ -149,7 +149,7 @@ Read Eval Render Loop (RERL)."
                              (:file "iolib" :depends-on ("basic-backend" "common")))))
   :depends-on (:ucw-core :rfc2388-binary :puri :iolib/sockets :cl-ppcre))
 
-(defsystem* :ucw-core.test
+(defsystem* "ucw-core/test"
   :components ((:module :test
                 :components
                 ((:file "package")

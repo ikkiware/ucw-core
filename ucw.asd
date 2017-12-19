@@ -59,7 +59,7 @@
   :depends-on (:ucw-core :cl-ppcre :closer-mop))
 
 
-(defsystem* :ucw.manual-examples
+(defsystem* "ucw/manual-examples"
   :description "UncommonWeb : Examples"
   :long-description "The example code from the manual"
   :author "Marco Baringer <mb@bese.it>"
@@ -69,12 +69,12 @@
   :class ucw-system
   :components
   ((:module :doc
-    :components 
+    :components
     ((:file "example-code"))))
   :properties ((version "0.9"))
   :depends-on (:ucw))
 
-(defsystem* :ucw.examples
+(defsystem* "ucw/examples"
   :license "BSD (sans advertising clause)"
   :version "0.9"
   :components
@@ -87,10 +87,10 @@
 				       (:file "sum" :depends-on ("examples"))
 				       ;(:file "shared-counter")
 				       (:file "wiki" :depends-on ("examples")))))))
-  :depends-on (:ucw :ucw.httpd))
+  :depends-on ("ucw" "ucw/httpd"))
 
 
-(defsystem* :ucw-ps
+(defsystem* "ucw/ps"
   :description "UncommonWeb: Parenscript functionality"
   :maintainer "Erick López <erick@ikki.ws>"
   :licence "BSD 2 Clause (http://opensource.org/comment/1294)"
@@ -98,7 +98,7 @@
   :class ucw-system
   :components
   ((:module :ucwps
-    :components 
+    :components
     ((:file "ucw-ps-package")
      (:file "ucw-ps" :depends-on ("ucw-ps-package")))))
   :properties ((version "0.5"))
