@@ -111,6 +111,7 @@ according to what the (encoding response) protocol answers."
 					  (response (context.response *context*))
 					  (last-modified nil last-modified-supplied-p)
 					  (content-type nil content-type-p)
+					  (content-disposition "inline")
 					  (content-disposition-filename nil content-disposition-filename-p)
 					  content-disposition-size
 					  (expires #.(* 24 60 60)))
@@ -141,6 +142,7 @@ according to what the (encoding response) protocol answers."
 	       :last-modified last-modified
 	       :content-type content-type
 	       :content-disposition-filename content-disposition-filename
+	       :content-disposition content-disposition
 	       :content-disposition-size content-disposition-size
 	       :expires expires
 	       args))
