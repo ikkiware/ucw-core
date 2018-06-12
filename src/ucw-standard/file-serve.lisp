@@ -44,21 +44,20 @@
                            (setf (get-header response "Content-Length")
 				 (princ-to-string ,content-length-value)))
                          ,@body)))))))
-  
   (defserve (serve-stream (stream &key
                                   (request (context.request *context*))
                                   (response (context.response *context*))
                                   (last-modified (get-universal-time))
                                   content-type
                                   content-length
-                                  (content-disposition "inline" content-disposition-p )
+                                  (content-disposition "inline" content-disposition-p)
                                   content-disposition-filename
                                   content-disposition-size
                                   (expires #.(* 24 60 60)))
                           :last-modified last-modified
                           :expires expires)
-    (awhen content-type
-      (setf (get-header response "Content-Type") it))
+      (awhen content-type
+	(setf (get-header response "Content-Type") it))
     (when (and (not content-length)
                (typep stream 'file-stream))
       (setf content-length (princ-to-string (file-length stream))))
@@ -66,16 +65,18 @@
       (setf content-length (princ-to-string content-length)))
     (awhen content-length
       (setf (get-header response "Content-Length") it))
-    (unless content-disposition-p
-      ;; this ugliness here is to give a chance for the caller to pass NIL directly
-      ;; to disable the default content disposition parts.
-      (when (and (not content-disposition-size)
-                 content-length)
-        (setf content-disposition-size content-length))
-      (awhen content-disposition-size
-        (setf content-disposition (strcat content-disposition ";size=" it)))
-      (awhen content-disposition-filename
-        (setf content-disposition (strcat content-disposition ";filename=\"" it "\""))))
+    (if content-disposition-p
+	(setf content-disposition (strcat content-disposition ";filename=\"" content-disposition-filename "\""))
+	(progn
+	  ;; this ugliness here is to give a chance for the caller to pass NIL directly
+	  ;; to disable the default content disposition parts.
+	  (when (and (not content-disposition-size)
+		     content-length)
+	    (setf content-disposition-size content-length))
+	  (awhen content-disposition-size
+	    (setf content-disposition (strcat content-disposition ";size=" it)))
+	  (awhen content-disposition-filename
+	    (setf content-disposition (strcat content-disposition ";filename=\"" it "\"")))))
     (awhen content-disposition
       (setf (get-header response "Content-Disposition") it))
     (send-headers response)
@@ -83,7 +84,7 @@
        with buffer = (make-array 8192 :element-type 'unsigned-byte)
        for end-pos = (read-sequence buffer stream)
        until (zerop end-pos) do
-       (write-sequence buffer (network-stream request) :end end-pos)))
+	 (write-sequence buffer (network-stream request) :end end-pos)))
 
   (defserve (serve-sequence (sequence &key
                                       (request (context.request *context*))
