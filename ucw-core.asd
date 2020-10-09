@@ -139,7 +139,7 @@ Read Eval Render Loop (RERL)."
   :components ((:module :src
                 :pathname "src/backend/"
                 :components ((:file "mod-lisp"))))
-  :depends-on (:ucw-core :ucw/httpd :iolib.sockets))
+  :depends-on (:ucw-core :ucw/httpd :iolib/sockets))
 
 (defsystem* "ucw/iolib"
   :components ((:module :src

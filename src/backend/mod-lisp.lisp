@@ -42,7 +42,7 @@
                                          :iso-8859-1)))
       (when (string= key "remote-ip-addr")
         (setf (remote-address request)
-	      (iolib.sockets:string-address-to-vector value)))
+	      (iolib/sockets:string-address-to-vector value)))
       (when (string= key "url")
         (setf (raw-uri request) value)
         (aif (position #\? value)
