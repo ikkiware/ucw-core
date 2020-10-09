@@ -269,6 +269,21 @@ exists), otherwise returns NIL."
                  ;; TODO DOS prevention: add support for rfc2388-binary to limit parsing length if the ContentLength header is fake, pass in *request-content-length-limit*
                  (return-from parse-request-body
                    (rfc2388-binary:read-mime stream boundary #'rfc2388-callback))))
+	      ("text/xml"
+               (let ((buffer (make-array content-length :element-type '(unsigned-byte 8))))
+                 (read-sequence buffer stream)
+                 (return-from parse-request-body
+		   (list (list "xml" (octets-to-string buffer :utf-8))))))
+	      ("text/plain"
+               (let ((buffer (make-array content-length :element-type '(unsigned-byte 8))))
+                 (read-sequence buffer stream)
+                 (return-from parse-request-body
+		   (list (list "plain" (octets-to-string buffer :utf-8))))))
+	      ("application/json"
+               (let ((buffer (make-array content-length :element-type '(unsigned-byte 8))))
+                 (read-sequence buffer stream)
+                 (return-from parse-request-body
+		   (list (list "json" (octets-to-string buffer :iso-8859-1))))))
               (t (abort-backend-request "Invalid request content type"))))))))
   (ucw.backend.debug "Skipped parsing request body, raw Content-Type is [~S], raw Content-Length is [~S]"
                      raw-content-type raw-content-length)
